@@ -31,17 +31,19 @@
     {% if summaries %}
     <table>
         <thead><tr>
-            <th>Session</th><th>Start stress</th><th>End stress</th><th>Δ</th>
+            <th>Arm</th><th>Session</th><th>Start stress</th><th>End stress</th><th>Δ</th>
             <th>Calm</th><th>Modes</th><th>Techniques</th><th>Turns</th><th>Mins</th><th>End</th>
-            <th>Stress lvl</th><th>Empathy mode</th><th>Intention</th><th>E</th><th>Support</th>
+            <th>Stress lvl</th><th>Empathy mode</th><th>Intention</th><th>E</th><th>Support</th><th></th>
         </tr></thead>
         <tbody>
         {% for r in summaries %}
             <tr>
+                <td><span class="arm-badge arm-{{ r['app_type'] or 'untagged' }}">{{ r['app_type'] or '—' }}</span></td>
                 <td class="mono">{{ r['session_id'] }}</td>
                 <td>{{ r['start_stress_score'] }}</td>
                 <td>{{ r['end_stress_score'] }}</td>
-                <td>{{ r['stress_improvement'] }}</td>
+                {% set dv = (r['stress_improvement'] if r['stress_improvement'] is not none else '')|string %}
+                <td>{% if dv.startswith('-') %}<span class="delta-neg">{{ dv }}</span>{% elif dv not in ('', '0', '0.0') %}<span class="delta-pos">{{ dv }}</span>{% else %}{{ dv }}{% endif %}</td>
                 <td>{{ r['final_calm_rating'] }}</td>
                 <td>{{ r['modes_used'] }}</td>
                 <td>{{ r['techniques_used'] }}</td>
@@ -53,6 +55,13 @@
                 <td>{{ r['intention_level'] }}</td>
                 <td>{{ r['empathy_E'] }}</td>
                 <td>{{ r['support_need_announced'] }}</td>
+                <td>
+                    <form class="inline-form" method="post"
+                          action="{{ url_for('delete_summary', summary_id=r['id']) }}"
+                          onsubmit="return confirm('Delete this summary permanently? This cannot be undone.');">
+                        <button type="submit" class="btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

@@ -389,6 +389,7 @@ init python:
     def default_profile_slot(slot_index):
         return {
             "slot_index": int(slot_index),
+            "profile_id": "",
             "name": "",
             "visit_count": 0,
             "last_session_id": "",
@@ -418,6 +419,17 @@ init python:
         slot_store[key] = slot
         persistent.hana_profile_slots = slot_store
         return slot
+
+    def get_or_create_profile_id(slot_index):
+        # Stable per-profile uuid, created the first time this slot is used and
+        # kept until the slot is reset. A reset+reuse of the same slot yields a
+        # NEW id, so the backend treats it as a different profile (no overwrite).
+        key, slot_store, slot = load_profile_slot(slot_index)
+        pid = (slot.get("profile_id", "") or "").strip()
+        if not pid:
+            pid = uuid.uuid4().hex
+            save_profile_slot(slot_index, {"profile_id": pid})
+        return pid
 
     def delete_profile_slot(slot_index):
         slot_store = getattr(persistent, "hana_profile_slots", None) or {}
@@ -1044,6 +1056,7 @@ default initial_Ea = 0.2
 default stress_score = 0
 default checkin_s_in_history = []
 default hana_selected_profile_slot = 1
+default hana_active_profile_id = ""
 default hana_pos = hana_mid
 
 # --- Flow Starts ---
@@ -1134,6 +1147,7 @@ label start:
     $ dummy1, dummy2, selected_slot_data = load_profile_slot(selected_slot)
     $ user_name = selected_slot_data.get("name", "").strip()
     $ hana_selected_profile_slot = selected_slot
+    $ hana_active_profile_id = get_or_create_profile_id(selected_slot)
     $ hana_pos = hana_mid
 
     if user_name:
@@ -2067,7 +2081,6 @@ label affective_input:
     # ADAPTIVE EMPATHY DISPLAY
     if Ad >= theta_ad:
         show hana concerned low at hana_pos
-        e "Thank you for sharing that with me."
         e "I can see that some of these experiences may be affecting you more deeply."
         show hana encouraging at hana_pos
         e "There's no need to rush. We can take this one step at a time."
@@ -2107,15 +2120,15 @@ label affective_input:
 
         elif heavy_type == "worry":
             show hana concerned low at hana_pos
-            e "Caring deeply about someone often comes with a lot of worry.Let's take a moment to slow down and breathe together."
+            e "Caring deeply about someone often comes with a lot of worry. Let's take a moment to slow down and breathe together."
 
         elif heavy_type == "exhaustion":
             show hana concerned low at hana_pos
-            e "It sounds like you've been giving a great deal of yourself for a long time.It may simply be a sign that you have been carrying a lot."
+            e "It sounds like you've been giving a great deal of yourself for a long time. It may simply be a sign that you have been carrying a lot."
 
         else:
             show hana concerned low at hana_pos
-            e "Even if it's difficult to put into words, what you're feeling is still important.We can simply take things one step at a time."
+            e "Even if it's difficult to put into words, what you're feeling is still important. We can simply take things one step at a time."
 
         $ Be = update_belief(Be, S_affective, Ec)
         $ D = desire(Be)
@@ -2191,8 +2204,8 @@ label affective_input:
 
         elif intention_type == "adaptive_pacing":
             show hana concerned low at hana_pos
-            e "There's no need to rush."
-            e "let's take things at a pace that feels comfortable for you."
+            e "We can slow down whenever you need to."
+            e "Let's take things at a pace that feels comfortable for you."
             $ log_interaction(
                 session_filename, session_id,
                 "Empathy activation", intention_type,

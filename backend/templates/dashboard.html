@@ -11,10 +11,19 @@
 </div>
 
 <div class="panel">
+    <p>
+        <strong>Download all data (one Excel file, 3 sheets — adaptive / strict_empathy / baseline):</strong><br>
+        <a href="{{ url_for('export_summaries_xlsx') }}">⬇ Summaries (start/end stress).xlsx</a>
+        &nbsp;|&nbsp;
+        <a href="{{ url_for('export_interactions_xlsx') }}">⬇ Interactions (every turn).xlsx</a>
+    </p>
+</div>
+
+<div class="panel">
     {% if users %}
     <table>
         <thead>
-            <tr><th>User</th><th>Device ID</th><th>Sessions</th><th>Interactions</th><th>Last seen (server)</th></tr>
+            <tr><th>User</th><th>Device ID</th><th>Sessions</th><th>Interactions</th><th>Last seen (server)</th><th></th></tr>
         </thead>
         <tbody>
         {% for u in users %}
@@ -24,6 +33,13 @@
                 <td>{{ u['sessions'] }}</td>
                 <td>{{ u['interactions'] }}</td>
                 <td class="mono">{{ u['last_seen'] }}</td>
+                <td>
+                    <form class="inline-form" method="post"
+                          action="{{ url_for('delete_user', device_id=u['device_id']) }}"
+                          onsubmit="return confirm('Delete this user and ALL their interactions and summaries? This cannot be undone.');">
+                        <button type="submit" class="btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

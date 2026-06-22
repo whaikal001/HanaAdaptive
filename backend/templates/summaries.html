@@ -2,25 +2,60 @@
 {% block title %}Summaries — HANA Admin{% endblock %}
 {% block body %}
 <h1>Session summaries</h1>
+
+<div class="cards">
+    <div class="card"><div class="n">{{ total }}</div><div class="l">All arms</div></div>
+    {% for key, label in arm_labels %}
+    <div class="card">
+        <div class="n">{{ counts[key] }}</div>
+        <div class="l"><span class="arm-badge arm-{{ key }}">{{ arm_short[key] }}</span></div>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="tabs">
+    <a href="{{ url_for('summaries') }}" class="{{ 'active' if arm == 'all' }}">All <span class="count">{{ total }}</span></a>
+    {% for key, label in arm_labels %}
+    <a href="{{ url_for('summaries', arm=key) }}" class="{{ 'active' if arm == key }}">{{ label }} <span class="count">{{ counts[key] }}</span></a>
+    {% endfor %}
+</div>
+
+<div class="panel" style="padding: 14px 18px; margin-bottom: 18px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+    <a href="{{ url_for('export_summaries_xlsx') }}">⬇ Download Excel (3 sheets: adaptive / strict_empathy / baseline)</a>
+    <span class="spacer" style="flex: 1;"></span>
+    {% if rows %}
+    {% set view_label = 'ALL arms' if arm == 'all' else arm_short.get(arm, arm) %}
+    <form class="inline-form" method="post" action="{{ url_for('delete_summaries_bulk') }}"
+          onsubmit="return confirm('Delete ALL {{ rows|length }} summaries in {{ view_label }}? This cannot be undone.');">
+        <input type="hidden" name="arm" value="{{ arm }}">
+        <button type="submit" class="btn-danger-solid">🗑 Delete all in {{ view_label }} ({{ rows|length }})</button>
+    </form>
+    {% endif %}
+</div>
+
 <div class="panel">
     {% if rows %}
+    <div class="table-wrap">
     <table>
         <thead><tr>
-            <th>Received</th><th>User</th><th>Session</th><th>Attempts</th>
+            <th>When (device)</th><th>Arm</th><th>User</th><th>Session</th><th>Attempts</th>
             <th>Start</th><th>End</th><th>Δ</th><th>Calm</th>
             <th>Modes</th><th>Techniques</th><th>Turns</th><th>Mins</th><th>End</th>
-            <th>Stress lvl</th><th>Empathy mode</th><th>Intention</th><th>E</th><th>Support</th>
+            <th>Stress lvl</th><th>Empathy mode</th><th>Intention</th><th>E</th><th>Support</th><th></th>
         </tr></thead>
         <tbody>
         {% for r in rows %}
             <tr>
-                <td class="mono">{{ r['received_at'] }}</td>
+                <td class="mono">{{ r['client_ts'] or r['received_at'] }}<br>
+                    <span class="muted" style="font-size:11px;">synced {{ r['received_at'] }}</span></td>
+                <td><span class="arm-badge arm-{{ r['app_type'] or 'untagged' }}">{{ arm_short.get(r['app_type'], r['app_type'] or '—') }}</span></td>
                 <td><a href="{{ url_for('user_detail', device_id=r['device_id']) }}">{{ r['user_name'] or '(no name)' }}</a></td>
                 <td class="mono">{{ r['session_id'] }}</td>
                 <td>{{ r['attempts'] }}</td>
                 <td>{{ r['start_stress_score'] }}</td>
                 <td>{{ r['end_stress_score'] }}</td>
-                <td>{{ r['stress_improvement'] }}</td>
+                {% set dv = (r['stress_improvement'] if r['stress_improvement'] is not none else '')|string %}
+                <td>{% if dv.startswith('-') %}<span class="delta-neg">{{ dv }}</span>{% elif dv not in ('', '0', '0.0') %}<span class="delta-pos">{{ dv }}</span>{% else %}{{ dv }}{% endif %}</td>
                 <td>{{ r['final_calm_rating'] }}</td>
                 <td>{{ r['modes_used'] }}</td>
                 <td>{{ r['techniques_used'] }}</td>
@@ -32,12 +67,20 @@
                 <td>{{ r['intention_level'] }}</td>
                 <td>{{ r['empathy_E'] }}</td>
                 <td>{{ r['support_need_announced'] }}</td>
+                <td>
+                    <form class="inline-form" method="post"
+                          action="{{ url_for('delete_summary', summary_id=r['id']) }}"
+                          onsubmit="return confirm('Delete this summary permanently? This cannot be undone.');">
+                        <button type="submit" class="btn-danger">Delete</button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    </div>
     {% else %}
-    <div class="empty">No session summaries yet.</div>
+    <div class="empty">No session summaries{% if arm != 'all' %} for this arm{% endif %} yet.</div>
     {% endif %}
 </div>
 {% endblock %}

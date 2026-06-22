@@ -22,8 +22,6 @@ DB_PATH = os.environ.get("HANA_DB_PATH", os.path.join(os.path.dirname(__file__),
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = SECRET_KEY
-
-# Columns that make up an interaction row (besides server-side metadata).
 INTERACTION_FIELDS = [
     "client_ts", "question", "answer", "score", "stress_level",
     "Ea", "Ec", "Ad", "Be", "D", "Ep", "empathy_mode",
@@ -68,6 +66,7 @@ def init_db():
             id              INTEGER PRIMARY KEY AUTOINCREMENT,
             received_at     TEXT DEFAULT (datetime('now')),
             device_id       TEXT,
+            app_type        TEXT,
             user_name       TEXT,
             session_id      TEXT,
             session_file    TEXT,
@@ -90,6 +89,7 @@ def init_db():
             id                       INTEGER PRIMARY KEY AUTOINCREMENT,
             received_at              TEXT DEFAULT (datetime('now')),
             device_id                TEXT,
+            app_type                 TEXT,
             user_name                TEXT,
             session_id               TEXT,
             session_file             TEXT,
@@ -122,11 +122,21 @@ def init_db():
     # missing. New columns default to NULL for older rows.
     existing_cols = {row[1] for row in db.execute("PRAGMA table_info(summaries)")}
     for col in ("stress_level", "empathy_mode", "intention_level",
-                "empathy_E", "support_need_announced"):
+                "empathy_E", "support_need_announced", "app_type",
+                "profile_slot", "profile_id"):
         if col not in existing_cols:
             db.execute("ALTER TABLE summaries ADD COLUMN %s TEXT" % col)
     if "attempts" not in existing_cols:
         db.execute("ALTER TABLE summaries ADD COLUMN attempts INTEGER DEFAULT 1")
+
+    # Same for interactions: tag each row with the study arm + profile id/slot.
+    inter_cols = {row[1] for row in db.execute("PRAGMA table_info(interactions)")}
+    if "app_type" not in inter_cols:
+        db.execute("ALTER TABLE interactions ADD COLUMN app_type TEXT")
+    if "profile_slot" not in inter_cols:
+        db.execute("ALTER TABLE interactions ADD COLUMN profile_slot TEXT")
+    if "profile_id" not in inter_cols:
+        db.execute("ALTER TABLE interactions ADD COLUMN profile_id TEXT")
 
     db.commit()
     db.close()
@@ -155,20 +165,21 @@ def api_interaction():
 
     # Anything outside the known columns is stashed in `extra` so we never lose
     # the enhanced-logging fields (Ea_history, struggle metrics, etc.).
-    known = {"device_id", "user_name", "session_id", "session_file"} | set(INTERACTION_FIELDS)
+    known = {"device_id", "app_type", "user_name", "profile_id", "profile_slot", "session_id", "session_file"} | set(INTERACTION_FIELDS)
     extra = {k: v for k, v in data.items() if k not in known}
 
     db = get_db()
     db.execute(
         """
         INSERT INTO interactions
-            (device_id, user_name, session_id, session_file, client_ts,
+            (device_id, app_type, user_name, profile_id, profile_slot, session_id, session_file, client_ts,
              question, answer, score, stress_level,
              Ea, Ec, Ad, Be, D, Ep, empathy_mode, extra)
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
         """,
         (
-            data.get("device_id"), data.get("user_name"), data.get("session_id"),
+            data.get("device_id"), data.get("app_type"),
+            data.get("user_name"), _s(data.get("profile_id")), _s(data.get("profile_slot")), data.get("session_id"),
             data.get("session_file"), data.get("client_ts"),
             data.get("question"), data.get("answer"), _s(data.get("score")),
             data.get("stress_level"),
@@ -190,7 +201,16 @@ def api_summary():
     data = request.get_json(silent=True) or {}
     db = get_db()
 
+    # Each profile gets a stable uuid (profile_id) when it's created in a slot;
+    # that's the per-profile identity we dedup on. profile_slot is kept too, but
+    # only as informational context (it gets reused when a slot is reset).
+    profile_id = data.get("profile_id")
+    profile_id = str(profile_id) if profile_id is not None and str(profile_id).strip() != "" else None
+    slot = data.get("profile_slot")
+    slot = str(slot) if slot is not None and str(slot).strip() != "" else None
+
     fields = (
+        profile_id, slot,
         data.get("session_id"), data.get("session_file"), data.get("client_ts"),
         _s(data.get("start_stress_score")), _s(data.get("end_stress_score")),
         _s(data.get("stress_improvement")), _s(data.get("final_calm_rating")),
@@ -202,19 +222,29 @@ def api_summary():
         _s(data.get("support_need_announced")),
     )
 
-    # One row per participant: a repeat attempt from the same device + name
-    # overwrites the previous summary (keeping an attempt count) instead of
-    # adding a new row, so exports stay one-row-per-user.
-    existing = db.execute(
-        "SELECT id, attempts FROM summaries WHERE device_id = ? AND user_name = ?",
-        (data.get("device_id"), data.get("user_name")),
-    ).fetchone()
+    # One row per profile: replaying the SAME profile overwrites its summary
+    # (attempts++), while a DIFFERENT profile — even same username, or a new
+    # profile created after a slot was reset — gets a fresh profile_id and its
+    # own row, so reset+reuse never clobbers earlier data. Fall back to session_id
+    # for builds that don't send a profile_id yet (those never overwrite either).
+    if profile_id is not None:
+        existing = db.execute(
+            "SELECT id, attempts FROM summaries WHERE device_id = ? AND profile_id = ?",
+            (data.get("device_id"), profile_id),
+        ).fetchone()
+    else:
+        existing = db.execute(
+            "SELECT id, attempts FROM summaries WHERE device_id = ? AND session_id = ?",
+            (data.get("device_id"), data.get("session_id")),
+        ).fetchone()
 
     if existing:
         db.execute(
             """
             UPDATE summaries SET
                 received_at = datetime('now'),
+                app_type = ?,
+                profile_id = ?, profile_slot = ?,
                 session_id = ?, session_file = ?, client_ts = ?,
                 start_stress_score = ?, end_stress_score = ?, stress_improvement = ?,
                 final_calm_rating = ?, modes_used = ?, techniques_used = ?,
@@ -224,21 +254,21 @@ def api_summary():
                 attempts = ?
             WHERE id = ?
             """,
-            fields + ((existing["attempts"] or 1) + 1, existing["id"]),
+            (data.get("app_type"),) + fields + ((existing["attempts"] or 1) + 1, existing["id"]),
         )
     else:
         db.execute(
             """
             INSERT INTO summaries
-                (device_id, user_name, session_id, session_file, client_ts,
-                 start_stress_score, end_stress_score, stress_improvement,
+                (device_id, app_type, user_name, profile_id, profile_slot, session_id, session_file,
+                 client_ts, start_stress_score, end_stress_score, stress_improvement,
                  final_calm_rating, modes_used, techniques_used,
                  total_interactions, session_duration_minutes, end_action,
                  stress_level, empathy_mode, intention_level, empathy_E,
                  support_need_announced, attempts)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,1)
             """,
-            (data.get("device_id"), data.get("user_name")) + fields,
+            (data.get("device_id"), data.get("app_type"), data.get("user_name")) + fields,
         )
     db.commit()
     return jsonify(ok=True)
@@ -367,14 +397,87 @@ def session_detail(device_id, session_id):
     )
 
 
+# The three study arms, as stored in `app_type`, with display labels.
+ARM_LABELS = [
+    ("adaptive", "Adaptive"),
+    ("strict_empathy", "Fixed (strict empathy)"),
+    ("neutral", "Neutral (baseline)"),
+]
+ARM_SHORT = {"adaptive": "Adaptive", "strict_empathy": "Fixed", "neutral": "Neutral"}
+
+
 @app.route("/summaries")
 @login_required
 def summaries():
     db = get_db()
-    rows = db.execute(
-        "SELECT * FROM summaries ORDER BY received_at DESC"
-    ).fetchall()
-    return render_template("summaries.html", rows=rows)
+
+    # Optional ?arm=<adaptive|strict_empathy|neutral> filter — "all" (or missing)
+    # shows everything.
+    arm = request.args.get("arm", "all")
+    valid_arms = {k for k, _ in ARM_LABELS}
+    # Order by the device timestamp (when the session actually happened), falling
+    # back to server-receive time for rows that predate client_ts. client_ts is
+    # "%Y-%m-%d %H:%M:%S" text, so it sorts chronologically as a string.
+    if arm in valid_arms:
+        rows = db.execute(
+            "SELECT * FROM summaries WHERE app_type = ? "
+            "ORDER BY COALESCE(client_ts, received_at) DESC",
+            (arm,),
+        ).fetchall()
+    else:
+        arm = "all"
+        rows = db.execute(
+            "SELECT * FROM summaries "
+            "ORDER BY COALESCE(client_ts, received_at) DESC"
+        ).fetchall()
+
+    # Per-arm counts for the filter tabs / stat cards.
+    counts = {k: 0 for k, _ in ARM_LABELS}
+    total = 0
+    for r in db.execute("SELECT app_type, COUNT(*) AS c FROM summaries GROUP BY app_type"):
+        total += r["c"]
+        if r["app_type"] in counts:
+            counts[r["app_type"]] = r["c"]
+
+    return render_template(
+        "summaries.html", rows=rows, arm=arm,
+        arm_labels=ARM_LABELS, arm_short=ARM_SHORT, counts=counts, total=total,
+    )
+
+
+@app.route("/summary/<int:summary_id>/delete", methods=["POST"])
+@login_required
+def delete_summary(summary_id):
+    db = get_db()
+    db.execute("DELETE FROM summaries WHERE id = ?", (summary_id,))
+    db.commit()
+    return redirect(request.referrer or url_for("summaries"))
+
+
+@app.route("/summaries/delete", methods=["POST"])
+@login_required
+def delete_summaries_bulk():
+    """Delete every summary in the current view: one arm, or all of them."""
+    arm = request.form.get("arm", "all")
+    db = get_db()
+    if arm in {k for k, _ in ARM_LABELS}:
+        db.execute("DELETE FROM summaries WHERE app_type = ?", (arm,))
+        db.commit()
+        return redirect(url_for("summaries", arm=arm))
+    db.execute("DELETE FROM summaries")
+    db.commit()
+    return redirect(url_for("summaries"))
+
+
+@app.route("/user/<device_id>/delete", methods=["POST"])
+@login_required
+def delete_user(device_id):
+    """Remove a device/user entirely: all their interactions and summaries."""
+    db = get_db()
+    db.execute("DELETE FROM interactions WHERE device_id = ?", (device_id,))
+    db.execute("DELETE FROM summaries WHERE device_id = ?", (device_id,))
+    db.commit()
+    return redirect(url_for("dashboard"))
 
 
 @app.route("/export/interactions.csv")
@@ -387,6 +490,63 @@ def export_interactions():
 @login_required
 def export_summaries():
     return _export("summaries")
+
+
+# One Excel workbook with a separate sheet per study arm, so all three HANA
+# versions land in a single file: "adaptive", "strict_empathy", "baseline".
+ARM_SHEET_ORDER = ["adaptive", "strict_empathy", "baseline"]
+
+
+@app.route("/export/summaries.xlsx")
+@login_required
+def export_summaries_xlsx():
+    return _export_xlsx("summaries")
+
+
+@app.route("/export/interactions.xlsx")
+@login_required
+def export_interactions_xlsx():
+    return _export_xlsx("interactions")
+
+
+def _export_xlsx(table):
+    from openpyxl import Workbook
+
+    db = get_db()
+    rows = db.execute("SELECT * FROM %s ORDER BY id ASC" % table).fetchall()
+    cols = list(rows[0].keys()) if rows else []
+
+    # Group every row onto a sheet named after its study arm. Rows with no
+    # app_type (e.g. data from before this column existed) go to "untagged".
+    grouped = {}
+    for r in rows:
+        arm = (r["app_type"] if "app_type" in r.keys() else None) or "untagged"
+        grouped.setdefault(arm, []).append(r)
+
+    sheet_order = list(ARM_SHEET_ORDER)
+    for arm in grouped:
+        if arm not in sheet_order:
+            sheet_order.append(arm)
+
+    wb = Workbook()
+    wb.remove(wb.active)
+    for arm in sheet_order:
+        ws = wb.create_sheet(title=arm[:31])  # Excel caps sheet names at 31 chars
+        if cols:
+            ws.append(cols)
+        for r in grouped.get(arm, []):
+            ws.append([r[k] for k in cols])
+    if not wb.sheetnames:
+        wb.create_sheet(title="empty")
+
+    bio = io.BytesIO()
+    wb.save(bio)
+    bio.seek(0)
+    return Response(
+        bio.read(),
+        mimetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": "attachment; filename=hana_%s.xlsx" % table},
+    )
 
 
 def _export(table):
