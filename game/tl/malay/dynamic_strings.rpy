@@ -1,25 +1,25 @@
 translate malay strings:
 
-    old "That's good to know."
-    new "Itu baik untuk diketahui."
+    old "That's good to know, that sounds steady."
+    new "Itu baik untuk diketahui, nampaknya keadaan stabil."
 
     old "It sounds like that one isn't weighing on you."
     new "Nampaknya perkara itu tidak membebankan anda."
 
-    old "I'm glad to hear that."
-    new "Saya gembira mendengarnya."
+    old "I'm really glad to hear that."
+    new "Saya amat gembira mendengarnya."
 
     old "That one sounds fairly light for you."
     new "Perkara itu nampaknya agak ringan bagi anda."
 
-    old "I see."
-    new "Saya faham."
+    old "I see, thank you for telling me."
+    new "Saya faham, terima kasih kerana memberitahu saya."
 
-    old "That makes sense."
-    new "Itu masuk akal."
+    old "That makes sense, thank you for sharing."
+    new "Itu masuk akal, terima kasih kerana berkongsi."
 
-    old "I appreciate you telling me."
-    new "Saya menghargai anda memberitahu saya."
+    old "I really appreciate you telling me that."
+    new "Saya amat menghargai anda memberitahu saya perkara itu."
 
     old "It sounds like that one comes and goes."
     new "Nampaknya perkara itu datang dan pergi."
@@ -27,8 +27,8 @@ translate malay strings:
     old "It sounds like you've been dealing with quite a lot."
     new "Nampaknya anda telah menghadapi cukup banyak perkara."
 
-    old "That can't have been easy."
-    new "Itu pasti tidak mudah."
+    old "That can't have been easy to carry."
+    new "Itu pasti tidak mudah untuk dipikul."
 
     old "I can see how that might affect you."
     new "Saya dapat melihat bagaimana perkara itu boleh menjejaskan anda."
@@ -48,11 +48,93 @@ translate malay strings:
     old "That sounds like a great deal to carry."
     new "Itu nampaknya satu beban yang besar untuk dipikul."
 
+    # --- HANA_BRIDGES additional lines (level 0) ---
+    # ("That's reassuring to hear." already translated below in the feedback pool)
+    old "It's good that one feels manageable."
+    new "Baik, perkara itu nampaknya masih boleh diuruskan."
+
+    old "I'm pleased that hasn't been troubling you."
+    new "Saya gembira perkara itu tidak mengganggu anda."
+
+    old "It's nice to hear that part has felt steady."
+    new "Menyenangkan untuk mendengar bahawa bahagian itu terasa stabil."
+
+    old "That's a comforting thing to know."
+    new "Itu sesuatu yang menenangkan untuk diketahui."
+
+    old "I'm glad that one sits lightly with you."
+    new "Saya gembira perkara itu terasa ringan bagi anda."
+
+    old "It sounds like that has been easy enough to carry."
+    new "Nampaknya perkara itu cukup mudah untuk dipikul."
+
+    # --- HANA_BRIDGES additional lines (level 1) ---
+    old "Thank you for openly sharing that today."
+    new "Terima kasih kerana berkongsi perkara itu secara terbuka."
+
+    # ("That's understandable." already translated below in the feedback pool)
+    old "I can follow what you mean."
+    new "Saya faham maksud anda."
+
+    old "It sounds like that one is there now and then."
+    new "Nampaknya perkara itu muncul sekali-sekala."
+
+    old "That seems fair enough, I understand."
+    new "Itu nampaknya cukup wajar, saya faham."
+
+    old "I understand, and I'm here with you."
+    new "Saya faham, dan saya berada di sini bersama anda."
+
+    old "It sounds like that one stays in the background."
+    new "Nampaknya perkara itu sentiasa ada di latar belakang."
+
+    # --- HANA_BRIDGES additional lines (level 2) ---
+    old "I can understand why that would weigh on you."
+    new "Saya faham mengapa perkara itu boleh membebankan anda."
+
+    old "It sounds like that has been asking a lot of you."
+    new "Nampaknya perkara itu telah menuntut banyak daripada anda."
+
+    old "That seems like it has stayed with you for a while."
+    new "Nampaknya perkara itu telah membebani anda untuk seketika."
+
+    # ("I can see how that would be tiring." already translated below in the feedback pool)
+    old "It sounds like that one has been quite demanding."
+    new "Nampaknya perkara itu cukup mencabar."
+
+    old "That sounds like it has been difficult to set aside."
+    new "Nampaknya perkara itu sukar untuk diketepikan."
+
+    old "I can imagine that has taken some effort to manage."
+    new "Saya dapat bayangkan ia memerlukan usaha untuk diuruskan."
+
+    # --- HANA_BRIDGES additional lines (level 3) ---
+    old "That sounds genuinely heavy to hold."
+    new "Itu nampaknya benar-benar berat untuk ditanggung."
+
+    old "It sounds like that has been hard to escape from."
+    new "Nampaknya perkara itu sukar untuk dilepaskan."
+
+    old "That seems like a great deal to bear on your own."
+    new "Itu nampaknya satu beban yang besar untuk dipikul seorang diri."
+
+    old "I can see how deeply this has been weighing on you."
+    new "Saya dapat melihat betapa dalamnya perkara ini membebani anda."
+
+    old "It sounds like that has stayed with you for some time."
+    new "Nampaknya perkara itu telah membebani anda untuk sekian lama."
+
+    old "That sounds truly draining, day after day."
+    new "Itu nampaknya benar-benar meletihkan, hari demi hari."
+
+    old "I can only imagine how much that has taken from you."
+    new "Saya hanya dapat bayangkan betapa banyak perkara itu telah mengambil daripada anda."
+
     old "Let's explore this a little further."
     new "Mari kita teliti perkara ini dengan lebih mendalam."
 
-    old "Here's another question for you."
-    new "Ada satu lagi soalan untuk anda."
+    old "Here's another question for you to consider."
+    new "Ada satu lagi soalan untuk anda fikirkan."
 
     old "I'd like to understand this a little better."
     new "Saya ingin memahami perkara ini dengan lebih baik."
@@ -60,8 +142,8 @@ translate malay strings:
     old "Let's look at this from a different angle."
     new "Mari kita lihat perkara ini dari sudut yang berbeza."
 
-    old "Just a couple more questions."
-    new "Tinggal beberapa soalan lagi."
+    old "Just a couple more questions to go."
+    new "Tinggal beberapa soalan lagi sahaja."
 
     old "Thank you for staying with me through these questions."
     new "Terima kasih kerana terus bersama saya sepanjang soalan-soalan ini."
@@ -87,29 +169,29 @@ translate malay strings:
     old "Do you sometimes feel extra sensitive or touchy?"
     new "Adakah anda kadangkala berasa lebih sensitif atau mudah tersinggung?"
 
-    old "That sounds manageable."
-    new "Itu nampaknya masih terkawal."
+    old "That sounds manageable, which is good."
+    new "Itu nampaknya masih terkawal, dan itu baik."
 
     old "It's good to know that isn't causing too much trouble."
     new "Baik untuk diketahui bahawa perkara itu tidak terlalu menyusahkan."
 
-    old "That's reassuring to hear."
-    new "Itu melegakan untuk didengari."
+    old "That's genuinely reassuring for me to hear."
+    new "Itu benar-benar melegakan untuk saya dengari."
 
     old "It sounds like you're coping well with that."
     new "Nampaknya anda menanganinya dengan baik."
 
-    old "That's good to hear."
-    new "Itu baik untuk didengari."
+    old "That's really good to hear from you."
+    new "Itu amat baik untuk didengari daripada anda."
 
     old "It sounds like that hasn't been weighing on you too much."
     new "Nampaknya perkara itu tidak terlalu membebankan anda."
 
-    old "I'm pleased to hear that."
-    new "Saya lega mendengarnya."
+    old "I'm very pleased to hear that today."
+    new "Saya amat lega mendengarnya hari ini."
 
-    old "That sounds fairly manageable."
-    new "Itu nampaknya agak terkawal."
+    old "That sounds fairly manageable for you now."
+    new "Itu nampaknya agak terkawal untuk anda sekarang."
 
     old "It's good to know that hasn't been a major concern."
     new "Baik untuk diketahui bahawa perkara itu bukan kebimbangan utama."
@@ -120,8 +202,8 @@ translate malay strings:
     old "I can see how that might happen occasionally."
     new "Saya dapat melihat bagaimana perkara itu boleh berlaku sekali-sekala."
 
-    old "I can understand that."
-    new "Saya dapat memahaminya."
+    old "I can certainly understand that feeling."
+    new "Saya pasti dapat memahami perasaan itu."
 
     old "It sounds like it comes and goes."
     new "Nampaknya ia datang dan pergi."
@@ -132,8 +214,8 @@ translate malay strings:
     old "Many people experience that now and then."
     new "Ramai orang mengalaminya sekali-sekala."
 
-    old "That sounds quite common."
-    new "Itu nampaknya agak biasa."
+    old "That sounds quite common, you're not alone."
+    new "Itu nampaknya agak biasa, anda tidak keseorangan."
 
     old "It sounds like it's there sometimes, but not all the time."
     new "Nampaknya ia wujud kadangkala, tetapi tidak sepanjang masa."
@@ -141,8 +223,8 @@ translate malay strings:
     old "That sounds manageable, even if it's not ideal."
     new "Itu nampaknya masih terkawal, walaupun tidak ideal."
 
-    old "That sounds difficult."
-    new "Itu nampaknya sukar."
+    old "That sounds difficult to deal with."
+    new "Itu nampaknya sukar untuk dihadapi."
 
     old "I can see how that would be tiring."
     new "Saya dapat melihat bagaimana perkara itu boleh meletihkan."
@@ -162,14 +244,14 @@ translate malay strings:
     old "I can see how that might affect your day."
     new "Saya dapat melihat bagaimana perkara itu boleh menjejaskan hari anda."
 
-    old "That sounds challenging."
-    new "Itu nampaknya mencabar."
+    old "That sounds genuinely challenging to handle."
+    new "Itu nampaknya benar-benar mencabar untuk diuruskan."
 
     old "It seems like that's been taking quite a bit of energy from you."
     new "Nampaknya perkara itu telah mengambil cukup banyak tenaga daripada anda."
 
-    old "That sounds really exhausting."
-    new "Itu nampaknya sangat meletihkan."
+    old "That sounds really exhausting to carry."
+    new "Itu nampaknya sangat meletihkan untuk dipikul."
 
     old "I'm sorry you've been dealing with that."
     new "Saya bersimpati anda telah menghadapi perkara itu."
@@ -180,8 +262,8 @@ translate malay strings:
     old "It sounds like that's been affecting you quite a lot."
     new "Nampaknya perkara itu telah menjejaskan anda dengan ketara."
 
-    old "That sounds really hard."
-    new "Itu nampaknya sangat sukar."
+    old "That sounds really hard to go through."
+    new "Itu nampaknya sangat sukar untuk dilalui."
 
     old "I can hear how much that has been weighing on you."
     new "Saya dapat merasakan betapa perkara itu membebankan anda."
@@ -393,8 +475,8 @@ translate malay strings:
     old "No rush, no pressure — just whatever feels right."
     new "Tiada kesegeraan, tiada tekanan — hanya apa yang terasa wajar untuk anda."
 
-    old "I'm listening."
-    new "Saya sedang mendengar."
+    old "I'm here and I'm listening to you."
+    new "Saya di sini dan saya sedang mendengar anda."
 
     old "Yeah, that makes sense. It's okay to feel that way."
     new "Ya, itu masuk akal. Tidak mengapa untuk berasa sedemikian."
@@ -504,4 +586,26 @@ translate malay strings:
 
     old "Thank you. We'll keep going at a pace that feels right for you."
     new "Terima kasih. Kita akan teruskan mengikut kadar yang selesa untuk anda."
+
+    # 4-7-8 breathing spoken guidance (shown via _() during the auto-paced rounds)
+    old "Breathe in gently through your nose for four seconds."
+    new "Tarik nafas perlahan-lahan melalui hidung selama empat saat."
+
+    old "Now breathe out slowly through your mouth for eight seconds."
+    new "Sekarang hembus nafas perlahan-lahan melalui mulut selama lapan saat."
+
+    old "In.. one, two, three, four."
+    new "Tarik nafas... satu, dua, tiga, empat."
+
+    old "Hold.. two, three, four, five, six, seven."
+    new "Tahan... dua, tiga, empat, lima, enam, tujuh."
+
+    old "And out.. two, three, four, five, six, seven, eight."
+    new "Dan hembus... dua, tiga, empat, lima, enam, tujuh, lapan."
+
+    old "There you go."
+    new "Bagus."
+
+    old "Okay, one more round."
+    new "Baiklah, sekali lagi."
 

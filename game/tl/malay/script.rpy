@@ -22,13 +22,13 @@ translate malay start_f19fdf45:
 translate malay start_0ff7db9d:
 
     # e "Last time, it seemed like things were quite heavy for you."
-    e "Sesi sebelumnya, awak nampaknya sedang mengalami masalah yang cukup berat."
+    e "Sesi sebelumnya, anda nampaknya sedang mengalami masalah yang cukup berat."
 
 # game/script.rpy:1094
 translate malay start_0119b2a7:
 
     # e "Last time, things seemed fairly manageable."
-    e "Sesi sebelumnya, masalah kamu boleh diurus."
+    e "Sesi sebelumnya, keadaan anda nampaknya masih boleh diuruskan."
 
 # game/script.rpy:1098
 translate malay start_0d8d085a:

@@ -1,4 +1,15 @@
 ﻿image bg room = "room.png"
+
+# Funder/institution logos shown on the disclaimer screen.
+# Put the three logo files in game/images/ named exactly: logo_uum.png, logo_kpt.png, logo_ums.png
+# (PNG with transparent background works best). ysize sets a common height; spacing is the gap between them.
+image logos_row = HBox(
+    Transform("logo_uum.png", fit="contain", ysize=160),
+    Transform("logo_kpt.png", fit="contain", ysize=160),
+    Transform("logo_ums.png", fit="contain", ysize=160),
+    spacing=80,
+)
+
 #kucing tukar position
 image room_cat_wake = Transform("room_catWakeup.png", xysize=(1920, 1080), fit="cover")
 image room_cat_walk = Transform("room_catwalkaway.png", xysize=(1920, 1080), fit="cover")
@@ -51,6 +62,7 @@ image hana listening eyeclose = "Sprites/Listening_eyeclose.png"
 # scene extra untuk imagine
 image beach = "beautifulbeach.jpg"
 image beachscene = Movie(play="video/beachscene.webm")
+image breathing_guide = Movie(play="video/478breathing.webm", loop=True)
 
 # --- Hana Location transforms ---
 transform hana_center:
@@ -163,6 +175,16 @@ transform scene_right:
     on hide:
         alpha 1.0
         linear 0.4 alpha 0.0 xoffset 80
+
+transform breathing_guide_pos:
+    zoom 0.5
+    xalign 0.9
+    yalign 0.42
+    on show:
+        alpha 0.0
+        linear 0.4 alpha 1.0
+    on hide:
+        linear 0.4 alpha 0.0
 
 init python:
     import math
@@ -619,12 +641,12 @@ init python:
                 if comp == "low":
                     return "compassionate_low"
         
-        # If user scored high on adaptive screening + ongoing stress + long duration → adaptive
+ 
         if adaptive_score >= 10 and situation_type == "ongoing" and duration == "long":
             if Ad >= 0.2:
                 return "adaptive"
         
-        # If user scored high on cognitive screening + unclear situation → cognitive approach
+
         if cognitive_score >= 10 and situation_type == "unclear":
             if Ec >= 0.5:
                 return "cognitive"
@@ -713,11 +735,6 @@ init python:
 
     def table_rule_for_condition(condition, urgent=False, repeated=False):
         rule = base_table_rule_for_condition(condition, urgent=urgent, repeated=repeated)
-
-        # learned feedback adaptation: if this strategy has accumulated negative
-        # feedback for this user (weight <= -0.3 means 3+ net negative ratings),
-        # step down to the gentler adaptive moderated rule instead of repeating
-        # an approach that has not been helping. Urgent cases are never downgraded.
         if not urgent and rule.get("tag") != "repeated_prolonged_distress":
             if empathy_policy_weight(rule) <= -0.3:
                 gentler = base_table_rule_for_condition(condition, urgent=False, repeated=True)
@@ -768,7 +785,7 @@ init python:
                 "dialogue": [
                     "I'm here. We can just take it easy.",
                     "No rush, no pressure — just whatever feels right.",
-                    "I'm listening."
+                    "I'm here and I'm listening to you."
                 ],
             }
 
@@ -798,7 +815,7 @@ init python:
                 "dialogue": [
                     "Okay, let's slow down and look at this together.",
                     "I'm paying attention. We'll work through it piece by piece.",
-                    "You're not doing this alone — we'll figure it out step by step."
+                    "You're not doing this alone, we'll figure it out step by step."
                 ],
             }
 
@@ -812,7 +829,7 @@ init python:
                 "tag": "severe_support",
                 "dialogue": [
                     "That sounds really hard, and I don't want to rush past it.",
-                    "I'm with you in this — let's be careful about how we move forward.",
+                    "I'm with you in this, let's be careful about how we move forward.",
                     "You deserve real support right now, not just words."
                 ],
             }
@@ -1117,8 +1134,12 @@ label start:
 
     scene black
     with fade
+
+    show logos_row:
+        xalign 0.5 yalign 0.9
     centered "Disclaimer:\n\nThis session uses some questions from the Depression Anxiety Stress Scales (DASS), specifically the stress subscale. \
-    These items are included for research and educational purposes only, and are not a substitute for professional diagnosis or treatment."
+    These items are included for research and educational purposes only, and are not a substitute for professional diagnosis or treatment. This study is funded by frgs"
+    hide logos_row
 
     scene bg room_cat
     show black:
@@ -1193,7 +1214,7 @@ label start:
         if not user_name:
             show hana listening at hana_center_listen
             with Fade(0.3, 0.0, 0.3)
-            e "And you are..?"
+            e "And you are?"
             show hana smiling at hana_pos
             $ user_name = renpy.input("")
             $ user_name = user_name.strip().title() if user_name.strip() else "friend"
@@ -1221,7 +1242,7 @@ label start:
                 show hana smiling at hana_pos
 
                 e "Thank you. I've always been fond of it myself."
-            "...Hi.":
+            "Hi":
                 show hana warm high at hana_pos
  
                 e "Hi. It's okay if you're not sure what to say. We can take things one step at a time."
@@ -1340,7 +1361,7 @@ label start:
     show hana listening at hana_center_listen
     $ bridge_line = hana_bridge(level_from_s_in(checkin_s_in_history[-1]))
     e "[bridge_line!t]"
-    e "Did anything feel stressful or frustrating for you today?"
+    e "Did anything feel stressful or frustrating for you today, my friend?"
     menu:
         "Not really":
             $ ans = "Not really"
@@ -1458,35 +1479,79 @@ init python:
     # ni yang dr azizi request if HANA nk response..dia refer balik answer before so dia punya bridge line based on answer tu
     HANA_BRIDGES = {
         0: [
-            "That's good to know.",
+            "That's good to know, that sounds steady.",
             "It sounds like that one isn't weighing on you.",
-            "I'm glad to hear that.",
+            "I'm really glad to hear that.",
             "That one sounds fairly light for you.",
+            "That's genuinely reassuring for me to hear.",
+            "It's good that one feels manageable.",
+            "I'm pleased that hasn't been troubling you.",
+            "It's nice to hear that part has felt steady.",
+            "That's a comforting thing to know.",
+            "I'm glad that one sits lightly with you.",
+            "It sounds like that has been easy enough to carry.",
         ],
         1: [
-            "I see.",
-            "That makes sense.",
-            "I appreciate you telling me.",
+            "I see, thank you for telling me.",
+            "That makes sense, thank you for sharing.",
+            "I really appreciate you telling me that.",
             "It sounds like that one comes and goes.",
+            "Thank you for openly sharing that today.",
+            "That's understandable, anyone might feel that way.",
+            "I can follow what you mean.",
+            "It sounds like that one is there now and then.",
+            "That seems fair enough, I understand.",
+            "I understand, and I'm here with you.",
+            "It sounds like that one stays in the background.",
         ],
         2: [
             "It sounds like you've been dealing with quite a lot.",
-            "That can't have been easy.",
+            "That can't have been easy to carry.",
             "I can see how that might affect you.",
             "It sounds like that one has been sitting with you.",
+            "I can understand why that would weigh on you.",
+            "It sounds like that has been asking a lot of you.",
+            "That seems like it has stayed with you for a while.",
+            "I can see how that would be tiring.",
+            "It sounds like that one has been quite demanding.",
+            "That sounds like it has been difficult to set aside.",
+            "I can imagine that has taken some effort to manage.",
         ],
         3: [
             "It seems like you've been carrying a lot lately.",
             "I can hear how much that's been affecting you.",
             "That sounds like it doesn't let up.",
             "That sounds like a great deal to carry.",
+            "That sounds genuinely heavy to hold.",
+            "It sounds like that has been hard to escape from.",
+            "That seems like a great deal to bear on your own.",
+            "I can see how deeply this has been weighing on you.",
+            "It sounds like that has stayed with you for some time.",
+            "That sounds truly draining, day after day.",
+            "I can only imagine how much that has taken from you.",
         ],
     }
+    _hana_bridge_remaining = {}
 
     def hana_bridge(prev_level):
         try:
-            pool = HANA_BRIDGES.get(int(prev_level), HANA_BRIDGES[1])
-            return renpy.random.choice(pool)
+            try:
+                level = int(prev_level)
+            except Exception:
+                level = 1
+
+            pool = HANA_BRIDGES.get(level, HANA_BRIDGES[1])
+            if not pool:
+                return "Okay."
+
+            remaining = _hana_bridge_remaining.get(level)
+            if not remaining:
+                remaining = list(pool)
+
+            line = renpy.random.choice(remaining)
+            remaining.remove(line)
+            _hana_bridge_remaining[level] = remaining
+            return line
         except Exception:
             return "Okay."
 
@@ -1576,10 +1641,10 @@ label stress_input:
 
     $ fillers_before = [
         "Let's explore this a little further.",
-        "Here's another question for you.",
+        "Here's another question for you to consider.",
         "I'd like to understand this a little better.",
         "Let's look at this from a different angle.",
-        "Just a couple more questions.",
+        "Just a couple more questions to go.",
         "Thank you for staying with me through these questions."
     ]
 
@@ -1595,47 +1660,47 @@ label stress_input:
 
     $ affective_feedback = {
         0: [
-            "I'm glad to hear that.",
-            "That sounds manageable.",
+            "I'm really glad to hear that.",
+            "That sounds manageable, which is good.",
             "It's good to know that isn't causing too much trouble.",
-            "That's reassuring to hear.",
+            "That's genuinely reassuring for me to hear.",
             "It sounds like you're coping well with that.",
-            "That's good to hear.",
+            "That's really good to hear from you.",
             "It sounds like that hasn't been weighing on you too much.",
-            "I'm pleased to hear that.",
-            "That sounds fairly manageable.",
+            "I'm very pleased to hear that today.",
+            "That sounds fairly manageable for you now.",
             "It's good to know that hasn't been a major concern."
         ],
         1: [
-            "That makes sense.",
+            "That makes sense, thank you for sharing.",
             "A little from time to time is understandable.",
             "I can see how that might happen occasionally.",
-            "I can understand that.",
+            "I can certainly understand that feeling.",
             "It sounds like it comes and goes.",
-            "That's understandable.",
+            "That's understandable, anyone might feel that way.",
             "Many people experience that now and then.",
-            "That sounds quite common.",
+            "That sounds quite common, you're not alone.",
             "It sounds like it's there sometimes, but not all the time.",
             "That sounds manageable, even if it's not ideal."
         ],
         2: [
-            "That sounds difficult.",
+            "That sounds difficult to deal with.",
             "I can see how that would be tiring.",
             "That can take a lot out of you over time.",
             "It sounds like that's been weighing on you.",
-            "That can't have been easy.",
+            "That can't have been easy to carry.",
             "I can understand why that would feel draining.",
             "That sounds like a lot to deal with.",
             "I can see how that might affect your day.",
-            "That sounds challenging.",
+            "That sounds genuinely challenging to handle.",
             "It seems like that's been taking quite a bit of energy from you."
         ],
         3: [
-            "That sounds really exhausting.",
+            "That sounds really exhausting to carry.",
             "I'm sorry you've been dealing with that.",
             "That must be difficult to carry day after day.",
             "It sounds like that's been affecting you quite a lot.",
-            "That sounds really hard.",
+            "That sounds really hard to go through.",
             "I can hear how much that has been weighing on you.",
             "That sounds like a lot for one person to carry.",
             "I'm sorry that you've been going through that.",
@@ -1702,16 +1767,16 @@ label stress_input:
     $ hi_count = sum(1 for r in stress_responses if r >= 2)
     if hi_count >= 4:
         show hana concerned high at hana_pos
-        e "Thank you for answering those questions with me."
-        e "Hearing all of that together, it sounds like you've been carrying quite a lot lately."
+        e "I am glad that we are here together."
+        e "From your answers, I can see that many things have been hard for you lately."
     elif hi_count >= 1:
         show hana concerned low at hana_pos
-        e "Thank you for answering those questions with me."
-        e "I feel like I have a better understanding of how things have been for you."
+        e "Thank you for answering these questions with me."
+        e "Now I understand a little better how you have been feeling."
     else:
         show hana smiling at hana_pos
-        e "Thank you for answering those questions with me."
-        e "It sounds like things have been fairly manageable for you overall, which is good to hear."
+        e "Thank you for answering these questions with me."
+        e "It sounds like things have been fine for you. I am happy to hear that."
 
     show hana listening at hana_center_listen
 
@@ -1777,10 +1842,9 @@ label stress_input:
     # reactive path 
     if stress_level == "Extremely severe" or (stress_level == "Severe" and (intention_level == "high" or Ad >= 0.7)):
         show hana concerned high at hana_pos
-        e "What you're carrying sounds really intense. If you ever feel unsafe, please reach out through Befrienders or talk to someone you trust."
-        e "You do not have to handle this alone."
+        e "What you're carrying sounds really intense. If you ever feel unsafe, please reach out through Befrienders (03-7627 2929) or talk to someone you trust."
         show hana encouraging at hana_pos
-        e "Let's not push into anything heavy right now. I'd rather we take a quiet moment together."
+        e "You do not have to handle this alone.Let's not push into anything heavy right now. I'd rather we take a quiet moment together."
         call calming_loop from _reactive_calming_loop
         $ calming_done = True
         jump session_end_loop
@@ -1842,10 +1906,8 @@ label session_end_loop:
             show hana warm high at hana_pos
 
             if stress_level == "Normal":
-                e "It sounds like things have been fairly manageable for you today."
                 e "Before we finish, we could spend a minute doing a simple breathing exercise together."
             else:
-                e "It sounds like you've had a few things on your mind today."
                 e "Before we finish, we could try something simple to help you unwind."
 
             show hana encouraging at hana_pos
@@ -2421,8 +2483,8 @@ label calming_loop:
     # if user reaches max calm loop but is still stressed
     show hana concerned low at hana_pos
     e "We tried a few things together, and I appreciate you staying with me."
-    e "If things continue to feel heavy, please reach out through Befrienders or talk to someone you trust."
-    e "You do not have to handle this alone."
+    e "If things continue to feel heavy, please reach out through Befrienders (03-7627 2929) or talk to someone you trust."
+    e "You do not have to handle this alone, my friend."
     show hana encouraging at hana_pos
     e "Thank you for showing up for yourself today, [user_name]."
     $ log_interaction(
@@ -2448,24 +2510,37 @@ label deliver_technique(tech):
         e "Let's start with a simple breathing exercise."
         e "When we're stressed, our breathing often becomes quicker and shallower without us noticing."
         e "Slowing the breath can help the body feel calmer and more settled."
+        # step Hana to the left for the breathing rounds
+        $ hana_pos = hana_left
         show hana neutral at hana_pos
         e "Let's do it together at a comfortable pace."
-        show hana encouraging at hana_pos
-        e "Breathe in gently through your nose for four counts."
-        e "In.. one, two, three, four." 
-        e "Hold for a moment."
-        e "Hold.. two, three,four, five, six, seven."
-        e "Now breathe out slowly through your mouth for eight counts."
-        e "two, three, four, five, six, seven, eight."
-        show hana good job at hana_pos
-        e "There you go."
-        e "Okay, one more round."
-        e "In.. one, two, three, four."  
-        e "Hold.. two, three, four, five, six, seven."
-        e "And out.. two, three, four, five, six, seven, eight."
+        show breathing_guide at breathing_guide_pos
+        python:
+            renpy.show("hana encouraging", at_list=[hana_left])
+            e(_("Breathe in gently through your nose for four seconds."), interact=False)
+            renpy.pause(4.0)
+            e(_("Now breathe out slowly through your mouth for eight seconds."), interact=False)
+            renpy.pause(8.0)
+            # two full 4-7-8 breathing rounds
+            for _round in range(2):
+                renpy.show("hana encouraging", at_list=[hana_left])
+                e(_("breath in.. one, two, three, four."), interact=False)
+                renpy.pause(4.0)
+                renpy.show("hana neutral", at_list=[hana_left])
+                e(_("Hold breath.. one, two, three, four, five, six, seven."), interact=False)
+                renpy.pause(7.0)
+                renpy.show("hana smiling", at_list=[hana_left])
+                e(_("And breath out.. one, two, three, four, five, six, seven, eight."), interact=False)
+                renpy.pause(8.0)
+                if _round == 0:
+                    renpy.show("hana good job", at_list=[hana_left])
+                    e(_("There you go."), interact=False)
+                    renpy.pause(2.0)
+                    e(_("Okay, one more round."), interact=False)
+                    renpy.pause(2.0)
+        hide breathing_guide
         show hana smiling at hana_pos
-        e "Well done."
-        e "Even a few slow breaths can help create a sense of calm."
+        e "Congratulations, you did it. Even a few slow breaths can help create a sense of calm."
 
     elif tech == "grounding":
         show hana encouraging at hana_pos
@@ -2481,8 +2556,7 @@ label deliver_technique(tech):
         e "Then notice 2 things you can smell, or remember smelling recently."
         e "And finally, 1 thing you can taste right now."
         show hana smiling at hana_pos
-        e "Thank you for taking a moment to do that."
-        e "Right now, you're here, in this moment, and that's enough."
+        e "Congratulations!. Right now, you're here, in this moment, and that's enough."
 
     elif tech == "body_scan":
         show hana encouraging at hana_pos
@@ -2502,8 +2576,7 @@ label deliver_technique(tech):
         e "There is no need to change anything right now."
         e "Just take a slow breath and allow yourself to notice how it feels."
         show hana smiling at hana_pos
-        e "Thank you for taking a moment to do that."
-        e "Sometimes simply noticing tension is the first step towards letting it go."
+        e "Congratulations!, sometimes simply noticing tension is the first step towards letting it go."
 
     elif tech == "gratitude":
         show hana smiling at hana_pos
