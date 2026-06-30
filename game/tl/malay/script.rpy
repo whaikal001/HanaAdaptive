@@ -1951,3 +1951,879 @@ translate malay affective_input_2ff909ba:
     # e "Let's take things at a pace that feels comfortable for you."
     e "Mari kita bergerak mengikut rentak yang selesa untuk anda."
 
+# TODO: Translation updated at 2026-06-30 16:04
+
+# game/script.rpy:1140
+translate malay start_73d62284:
+
+    # centered "Disclaimer:\n\nThis session includes some questions about stress from the Depression Anxiety Stress Scales (DASS). \ These questions are used for research only. They are not a medical test and cannot diagnose or treat mental health conditions.\n\n{size=-10}This research was supported by the Ministry of Higher Education (MoHE) of Malaysia through the Fundamental Research Grant Scheme (FRGS/1/2024/ICT02/UUM/02/1){/size}"
+    centered "Penafian:\n\nSesi ini mengandungi beberapa soalan tentang tekanan daripada Depression Anxiety Stress Scales (DASS). Soalan-soalan ini digunakan untuk penyelidikan sahaja. Ia bukan ujian perubatan dan tidak boleh mendiagnosis atau merawat masalah kesihatan mental.\n\n{size=-10}Penyelidikan ini disokong oleh Kementerian Pendidikan Tinggi (KPT) Malaysia melalui Skim Geran Penyelidikan Fundamental (FRGS/1/2024/ICT02/UUM/02/1){/size}"
+
+# game/script.rpy:1205
+translate malay start_ccfb9205:
+
+    # e "Last time, it seemed like you were having a difficult time."
+    e "Kali terakhir, nampaknya anda sedang melalui masa yang sukar."
+
+# game/script.rpy:1208
+translate malay start_56bdea4a:
+
+    # e "Last time, things seemed to be okay."
+    e "Kali terakhir, nampaknya keadaan anda baik-baik sahaja."
+
+# game/script.rpy:1216
+translate malay start_b490a793:
+
+    # e "What is your name?"
+    e "Siapa nama anda?"
+
+# game/script.rpy:1231
+translate malay start_3b756339:
+
+    # e "I hope we have a nice conversation."
+    e "Saya harap kita dapat berbual dengan baik."
+
+# game/script.rpy:1233
+translate malay start_a6ff6a6e:
+
+    # e "I am glad you are here."
+    e "Saya gembira anda berada di sini."
+
+# game/script.rpy:1238
+translate malay start_7b332fed:
+
+    # e "Thank you. I am happy to meet you too."
+    e "Terima kasih. Saya juga gembira bertemu dengan anda."
+
+# game/script.rpy:1242
+translate malay start_dbabd1d8:
+
+    # e "Thank you. I like my name too."
+    e "Terima kasih. Saya juga suka nama saya."
+
+# game/script.rpy:1246
+translate malay start_09e11085:
+
+    # e "Hi. I am happy we can talk today."
+    e "Hai. Saya gembira kita dapat berbual hari ini."
+
+# game/script.rpy:1252
+translate malay start_d4c1dd19:
+
+    # e "Before we continue, would you like some soft background music?"
+    e "Sebelum kita teruskan, adakah anda mahu sedikit muzik latar yang lembut?"
+
+# game/script.rpy:1253
+translate malay start_4ccf5fc0:
+
+    # e "Some people find it relaxing, while others prefer silence. Both are okay."
+    e "Sesetengah orang rasa ia menenangkan, manakala yang lain lebih suka suasana sunyi. Kedua-duanya tidak mengapa."
+
+# game/script.rpy:1259
+translate malay start_c90a9259:
+
+    # e "Okay. I will play soft music."
+    e "Baiklah. Saya akan mainkan muzik yang lembut."
+
+# game/script.rpy:1265
+translate malay start_586fc20b:
+
+    # e "Okay. We will continue without music."
+    e "Baiklah. Kita akan teruskan tanpa muzik."
+
+# game/script.rpy:1279
+translate malay start_277d4dc0:
+
+    # e "So, [user_name], how do you feel today?"
+    e "Jadi, [user_name], bagaimana perasaan anda hari ini?"
+
+# game/script.rpy:1285
+translate malay start_8b970623:
+
+    # e "That is wonderful. I am happy to hear that."
+    e "Itu sangat baik. Saya gembira mendengarnya."
+
+# game/script.rpy:1291
+translate malay start_a253bab3:
+
+    # e "That is nice to hear. I hope the rest of your day goes well."
+    e "Itu menyenangkan untuk didengari. Saya harap baki hari anda berjalan lancar."
+
+# game/script.rpy:1297
+translate malay start_4c7f9211:
+
+    # e "It sounds like you have a few things to deal with."
+    e "Nampaknya anda ada beberapa perkara yang perlu diuruskan."
+
+# game/script.rpy:1303
+translate malay start_74271b49:
+
+    # e "That sounds like a lot to deal with. Thank you for sharing that with me."
+    e "Itu nampaknya banyak yang perlu diuruskan. Terima kasih kerana berkongsi dengan saya."
+
+# game/script.rpy:1364
+translate malay start_b44e9519:
+
+    # e "Did anything make you feel stressed or upset today?"
+    e "Adakah ada apa-apa yang membuatkan anda berasa tertekan atau kecewa hari ini?"
+
+# game/script.rpy:1416
+translate malay start_38313870:
+
+    # e "Now, I would like to ask about something positive."
+    e "Sekarang, saya ingin bertanya tentang sesuatu yang positif."
+
+# game/script.rpy:1417
+translate malay start_3c341f78:
+
+    # e "Even on a difficult day, there can still be something good."
+    e "Walaupun pada hari yang sukar, masih ada sesuatu yang baik."
+
+# game/script.rpy:1420
+translate malay start_1fdbca13:
+
+    # e "What is one good thing that happened to you recently?"
+    e "Apakah satu perkara baik yang berlaku kepada anda kebelakangan ini?"
+
+# game/script.rpy:1776
+translate malay stress_input_02947b3a:
+
+    # e "I am glad that we are here together."
+    e "Saya gembira kita berada di sini bersama-sama."
+
+# game/script.rpy:1777
+translate malay stress_input_d292d09f:
+
+    # e "From your answers, it seems that things have been difficult for you lately."
+    e "Daripada jawapan anda, nampaknya keadaan agak sukar untuk anda kebelakangan ini."
+
+# game/script.rpy:1780
+translate malay stress_input_20bc04f1:
+
+    # e "Thank you for answering these questions with me."
+    e "Terima kasih kerana menjawab soalan-soalan ini bersama saya."
+
+# game/script.rpy:1781
+translate malay stress_input_66cded37:
+
+    # e "I understand a little better how you have been feeling."
+    e "Saya lebih memahami sedikit perasaan anda."
+
+# game/script.rpy:1784
+translate malay stress_input_04fccae6:
+
+    # e "Thank you for answering these questions."
+    e "Terima kasih kerana menjawab soalan-soalan ini."
+
+# game/script.rpy:1785
+translate malay stress_input_a7e7d026:
+
+    # e "It sounds like things have been going well. I am glad to hear that."
+    e "Nampaknya keadaan berjalan dengan baik. Saya gembira mendengarnya."
+
+# game/script.rpy:1851
+translate malay stress_input_b1f43a4d:
+
+    # e "This sounds very difficult for you. If you feel very stressed, please call Befrienders at 03-7627 2929 or talk to someone you trust."
+    e "Ini kedengaran sangat sukar bagi anda. Jika anda berasa sangat tertekan, sila hubungi Befrienders di talian 03-7627 2929 atau berbual dengan seseorang yang anda percayai."
+
+# game/script.rpy:1853
+translate malay stress_input_d07012a2:
+
+    # e "You do not have to face this alone. We do not need to talk about anything difficult now. Let us take a quiet moment together."
+    e "Anda tidak perlu menghadapinya seorang diri. Kita tidak perlu membincangkan apa-apa yang sukar sekarang. Mari kita ambil seketika yang tenang bersama-sama."
+
+# game/script.rpy:1861
+translate malay stress_input_47b6b2d6:
+
+    # e "If you are comfortable, could you tell me a little more about how this has affected you?"
+    e "Jika anda selesa, bolehkah anda ceritakan sedikit lagi tentang bagaimana perkara ini menjejaskan anda?"
+
+# game/script.rpy:1881
+translate malay session_end_loop_18e1efc3:
+
+    # e "We have taken a quiet moment together. I am glad we did."
+    e "Kita telah mengambil seketika yang tenang bersama-sama. Saya gembira kita melakukannya."
+
+# game/script.rpy:1883
+translate malay session_end_loop_a221af66:
+
+    # e "We can do another calming exercise, or we can stop here whenever you are ready."
+    e "Kita boleh melakukan satu lagi latihan menenangkan diri, atau kita boleh berhenti di sini bila-bila masa anda bersedia."
+
+# game/script.rpy:1915
+translate malay session_end_loop_536c4c0c:
+
+    # e "Before we finish, we can take a moment to do a simple breathing exercise together."
+    e "Sebelum kita tamatkan, kita boleh ambil seketika untuk melakukan latihan pernafasan yang ringkas bersama-sama."
+
+# game/script.rpy:1917
+translate malay session_end_loop_3b05103f:
+
+    # e "Before we finish, we can try something simple to help you feel more relaxed."
+    e "Sebelum kita tamatkan, kita boleh cuba sesuatu yang ringkas untuk membantu anda berasa lebih tenang."
+
+# game/script.rpy:1920
+translate malay session_end_loop_569b5446:
+
+    # e "Would you like to try a short breathing exercise with me?"
+    e "Adakah anda mahu mencuba latihan pernafasan yang ringkas bersama saya?"
+
+# game/script.rpy:1951
+translate malay session_end_loop_40270b98:
+
+    # e "It sounds like you have had a hard day."
+    e "Nampaknya anda telah melalui hari yang sukar."
+
+# game/script.rpy:1954
+translate malay session_end_loop_b5c36c87:
+
+    # e "Before we finish, we can try a short calming exercise together."
+    e "Sebelum kita tamatkan, kita boleh cuba latihan menenangkan diri yang ringkas bersama-sama."
+
+# game/script.rpy:1957
+translate malay session_end_loop_9e7defad:
+
+    # e "It may help you feel calmer."
+    e "Ia mungkin membantu anda berasa lebih tenang."
+
+# game/script.rpy:2010
+translate malay affective_input_36e4d87c:
+
+    # e "When you feel stressed, even simple tasks can feel harder."
+    e "Apabila anda berasa tertekan, tugas yang mudah pun boleh terasa lebih sukar."
+
+# game/script.rpy:2017
+translate malay affective_input_cd7658f2:
+
+    # e "Being mentally tired can make everything feel more difficult."
+    e "Keletihan mental boleh membuatkan segala-galanya terasa lebih sukar."
+
+# game/script.rpy:2024
+translate malay affective_input_8121df2c:
+
+    # e "It can be hard when worry stays on your mind."
+    e "Ia boleh menjadi sukar apabila kebimbangan terus bermain di fikiran anda."
+
+# game/script.rpy:2031
+translate malay affective_input_3c48547b:
+
+    # e "That sounds difficult. Sleep, rest, and mood can affect the whole day."
+    e "Itu kedengaran sukar. Tidur, rehat dan emosi boleh menjejaskan keseluruhan hari anda."
+
+# game/script.rpy:2050
+translate malay affective_input_50aa97cf:
+
+    # e "Balancing caregiving with work or study can be tiring when you have many responsibilities."
+    e "Mengimbangi tugas penjagaan dengan kerja atau pengajian boleh memenatkan apabila anda mempunyai banyak tanggungjawab."
+
+# game/script.rpy:2057
+translate malay affective_input_25197072:
+
+    # e "Managing household tasks while caring for someone can make your day feel very busy."
+    e "Menguruskan kerja rumah sambil menjaga seseorang boleh membuatkan hari anda terasa sangat sibuk."
+
+# game/script.rpy:2064
+translate malay affective_input_40c0bfce:
+
+    # e "Not having enough time for yourself can slowly make you feel tired."
+    e "Tidak mempunyai cukup masa untuk diri sendiri boleh perlahan-lahan membuatkan anda berasa letih."
+
+# game/script.rpy:2071
+translate malay affective_input_98bc6c13:
+
+    # e "Unexpected situations while caring for someone can make the day feel difficult to manage."
+    e "Situasi yang tidak dijangka semasa menjaga seseorang boleh membuatkan hari terasa sukar untuk diuruskan."
+
+# game/script.rpy:2090
+translate malay affective_input_561935d0:
+
+    # e "Worrying about the person you care for can stay on your mind, even when you try to focus on other things."
+    e "Kebimbangan tentang orang yang anda jaga boleh terus bermain di fikiran, walaupun anda cuba menumpukan perhatian pada perkara lain."
+
+# game/script.rpy:2097
+translate malay affective_input_4b2c0085:
+
+    # e "Having too many responsibilities at once can make it feel like you cannot rest."
+    e "Mempunyai terlalu banyak tanggungjawab pada satu masa boleh membuatkan anda rasa seperti tidak dapat berehat."
+
+# game/script.rpy:2104
+translate malay affective_input_0dd7281e:
+
+    # e "Not getting enough rest or support can make caregiving feel much harder."
+    e "Tidak mendapat cukup rehat atau sokongan boleh membuatkan tugas penjagaan terasa jauh lebih sukar."
+
+# game/script.rpy:2111
+translate malay affective_input_ade2df7d:
+
+    # e "Even if it is hard to explain, your feelings still matter."
+    e "Walaupun ia sukar untuk dijelaskan, perasaan anda tetap penting."
+
+# game/script.rpy:2137
+translate malay affective_input_df2e62e3:
+
+    # e "It sounds like a few things have been making life harder for you lately."
+    e "Nampaknya beberapa perkara telah membuatkan hidup anda lebih sukar kebelakangan ini."
+
+# game/script.rpy:2141
+translate malay affective_input_a5e5fceb:
+
+    # e "I understand a little better what has been causing your stress."
+    e "Saya lebih memahami sedikit apa yang menyebabkan tekanan anda."
+
+# game/script.rpy:2144
+translate malay affective_input_0731628c:
+
+    # e "It sounds like you've been managing it quite well."
+    e "Nampaknya anda telah menguruskannya dengan agak baik."
+
+# game/script.rpy:2146
+translate malay affective_input_14e96a8f:
+
+    # e "It sounds like it's been affecting you more recently."
+    e "Nampaknya ia telah menjejaskan anda dengan lebih ketara kebelakangan ini."
+
+# game/script.rpy:2148
+translate malay affective_input_0876c69a:
+
+    # e "It sounds like this has been affecting you for quite some time."
+    e "Nampaknya perkara ini telah menjejaskan anda untuk satu tempoh yang agak lama."
+
+# game/script.rpy:2153
+translate malay affective_input_0c4c375b:
+
+    # e "I can see that some of these experiences have been affecting you."
+    e "Saya dapat melihat bahawa sebahagian daripada pengalaman ini telah menjejaskan anda."
+
+# game/script.rpy:2155
+translate malay affective_input_f4183fe4:
+
+    # e "There is no need to rush. We can take it one step at a time."
+    e "Tidak perlu tergesa-gesa. Kita boleh lakukannya selangkah demi selangkah."
+
+# game/script.rpy:2162
+translate malay affective_input_40fa10e9:
+
+    # e "I'd like to understand a little more about what has been making you feel this way."
+    e "Saya ingin memahami sedikit lagi tentang apa yang membuatkan anda berasa begini."
+
+# game/script.rpy:2171
+translate malay affective_input_c29753ec:
+
+    # e "When things start to feel difficult, which part is the hardest for you?"
+    e "Apabila keadaan mula terasa sukar, bahagian manakah yang paling sukar bagi anda?"
+
+# game/script.rpy:2188
+translate malay affective_input_747c2908:
+
+    # e "Balancing caregiving with other responsibilities can be very tiring. Let's focus on one small step at a time."
+    e "Mengimbangi tugas penjagaan dengan tanggungjawab lain boleh menjadi sangat memenatkan. Mari kita fokus pada satu langkah kecil pada satu masa."
+
+# game/script.rpy:2192
+translate malay affective_input_722cd568:
+
+    # e "Caring for someone can bring a lot of worry. Let's take a moment to slow down and breathe together."
+    e "Menjaga seseorang boleh membawa banyak kebimbangan. Mari kita ambil seketika untuk berehat sebentar dan bernafas bersama-sama."
+
+# game/script.rpy:2196
+translate malay affective_input_87a21e50:
+
+    # e "It sounds like you've been giving a lot of your time and energy. It may be a sign that you've been carrying a lot."
+    e "Nampaknya anda telah memberikan banyak masa dan tenaga anda. Ia mungkin tanda bahawa anda telah menanggung banyak perkara."
+
+# game/script.rpy:2200
+translate malay affective_input_c7cc3fb3:
+
+    # e "Even if it's hard to explain, your feelings are still important. We can take things one step at a time."
+    e "Walaupun ia sukar untuk dijelaskan, perasaan anda tetap penting. Kita boleh lakukannya selangkah demi selangkah."
+
+# game/script.rpy:2246
+translate malay affective_input_2f040878:
+
+    # e "It sounds like you've been carrying a lot."
+    e "Nampaknya anda telah menanggung banyak perkara."
+
+# game/script.rpy:2250
+translate malay affective_input_a141ef7e:
+
+    # e "Let's take it one step at a time."
+    e "Mari kita lakukannya selangkah demi selangkah."
+
+# game/script.rpy:2264
+translate malay affective_input_90b2922e:
+
+    # e "Thank you for helping me understand how you've been feeling."
+    e "Terima kasih kerana membantu saya memahami perasaan anda."
+
+# game/script.rpy:2265
+translate malay affective_input_13813c26:
+
+    # e "Before we continue, I'd like to think about what you've shared."
+    e "Sebelum kita teruskan, saya ingin merenung apa yang telah anda kongsikan."
+
+# game/script.rpy:2277
+translate malay affective_input_ffd545f5:
+
+    # e "We'll go at a pace that feels comfortable for you."
+    e "Kita akan bergerak pada kelajuan yang selesa untuk anda."
+
+# game/script.rpy:2288
+translate malay affective_input_b421d6e9:
+
+    # e "It sounds like there may be more to what you've shared."
+    e "Nampaknya mungkin ada lebih lagi di sebalik apa yang anda kongsikan."
+
+# game/script.rpy:2492
+translate malay calming_loop_1cf9023f:
+
+    # e "We tried a few things together, and thank you for staying with me."
+    e "Kita telah mencuba beberapa perkara bersama-sama, dan terima kasih kerana terus bersama saya."
+
+# game/script.rpy:2493
+translate malay calming_loop_312f5956:
+
+    # e "If things still feel difficult, please reach out to Befrienders (03-7627 2929) or talk to someone you trust."
+    e "Jika keadaan masih terasa sukar, sila hubungi Befrienders (03-7627 2929) atau berbual dengan seseorang yang anda percayai."
+
+# game/script.rpy:2494
+translate malay calming_loop_0b10421c:
+
+    # e "You do not have to go through this alone."
+    e "Anda tidak perlu melalui semua ini seorang diri."
+
+# game/script.rpy:2496
+translate malay calming_loop_b6cc6bd1:
+
+    # e "Thank you for spending this time with me today, [user_name]."
+    e "Terima kasih kerana meluangkan masa ini bersama saya hari ini, [user_name]."
+
+# game/script.rpy:2517
+translate malay deliver_technique_3c0f7586:
+
+    # e "Let us start with a simple breathing exercise."
+    e "Mari kita mulakan dengan latihan pernafasan yang ringkas."
+
+# game/script.rpy:2518
+translate malay deliver_technique_90028474:
+
+    # e "When we feel stressed, we may breathe faster without noticing."
+    e "Apabila kita berasa tertekan, kita mungkin bernafas lebih cepat tanpa menyedarinya."
+
+# game/script.rpy:2519
+translate malay deliver_technique_0e088ab6:
+
+    # e "Slow breathing can help the body feel calmer."
+    e "Pernafasan yang perlahan boleh membantu badan berasa lebih tenang."
+
+# game/script.rpy:2552
+translate malay deliver_technique_5f1684d8:
+
+    # e "Well done. Even a few slow breaths can help you feel calmer."
+    e "Syabas. Beberapa nafas yang perlahan pun boleh membantu anda berasa lebih tenang."
+
+# game/script.rpy:2557
+translate malay deliver_technique_1f92e64f:
+
+    # e "When we feel stressed or overwhelmed, our minds can become very busy."
+    e "Apabila kita berasa tertekan atau terbeban, fikiran kita boleh menjadi sangat sibuk."
+
+# game/script.rpy:2558
+translate malay deliver_technique_2d2bc62c:
+
+    # e "This exercise helps us focus on the present by noticing what we can see, hear, feel, smell, and taste."
+    e "Latihan ini membantu kita menumpukan perhatian pada masa kini dengan menyedari apa yang kita boleh lihat, dengar, rasa, hidu dan kecap."
+
+# game/script.rpy:2560
+translate malay deliver_technique_e339e25a:
+
+    # e "Take a moment to look around you. There's no need to rush."
+    e "Ambil seketika untuk melihat sekeliling anda. Tidak perlu tergesa-gesa."
+
+# game/script.rpy:2563
+translate malay deliver_technique_1ea6345d:
+
+    # e "Next, notice 4 things you can touch or feel, like your chair, your clothes, or your hands."
+    e "Seterusnya, perhatikan 4 perkara yang anda boleh sentuh atau rasa, seperti kerusi anda, pakaian anda, atau tangan anda."
+
+# game/script.rpy:2564
+translate malay deliver_technique_7e484302:
+
+    # e "Now, listen for 3 sounds around you. Even quiet sounds count."
+    e "Sekarang, dengarkan 3 bunyi di sekeliling anda. Bunyi yang perlahan pun dikira."
+
+# game/script.rpy:2565
+translate malay deliver_technique_6a528980:
+
+    # e "Then, notice 2 things you can smell, or remember smelling recently."
+    e "Kemudian, perhatikan 2 perkara yang anda boleh hidu, atau yang anda ingat pernah dihidu kebelakangan ini."
+
+# game/script.rpy:2566
+translate malay deliver_technique_eb3ab884:
+
+    # e "Finally, notice 1 thing you can taste."
+    e "Akhir sekali, perhatikan 1 perkara yang anda boleh kecap."
+
+# game/script.rpy:2568
+translate malay deliver_technique_e7c1521f:
+
+    # e "Good job. Right now, you're here. Just focus on this moment."
+    e "Bagus. Sekarang, anda berada di sini. Tumpukan perhatian pada saat ini sahaja."
+
+# game/script.rpy:2572
+translate malay deliver_technique_dcfae91c:
+
+    # e "Let us try a short body scan exercise."
+    e "Mari kita cuba latihan imbasan badan yang ringkas."
+
+# game/script.rpy:2573
+translate malay deliver_technique_ed917f7f:
+
+    # e "Stress can sometimes affect the body without us noticing."
+    e "Tekanan kadangkala boleh menjejaskan badan tanpa kita sedari."
+
+# game/script.rpy:2574
+translate malay deliver_technique_33f9f277:
+
+    # e "You may feel tightness in your shoulders, jaw, neck, or hands."
+    e "Anda mungkin berasa ketegangan pada bahu, rahang, leher, atau tangan anda."
+
+# game/script.rpy:2576
+translate malay deliver_technique_1048bf51:
+
+    # e "Take a moment to notice how your body feels."
+    e "Ambil seketika untuk menyedari bagaimana keadaan badan anda."
+
+# game/script.rpy:2578
+translate malay deliver_technique_af525efa:
+
+    # e "Start with your shoulders. Let them relax."
+    e "Mulakan dengan bahu anda. Biarkan ia mengendur."
+
+# game/script.rpy:2579
+translate malay deliver_technique_14b5cd06:
+
+    # e "Now notice your jaw. Let it relax, and let your tongue rest."
+    e "Sekarang perhatikan rahang anda. Biarkan ia mengendur, dan biarkan lidah anda berehat."
+
+# game/script.rpy:2580
+translate malay deliver_technique_66998ea0:
+
+    # e "Next, notice your hands. Let them relax and rest."
+    e "Seterusnya, perhatikan tangan anda. Biarkan ia mengendur dan berehat."
+
+# game/script.rpy:2581
+translate malay deliver_technique_7ceb8929:
+
+    # e "Now pay attention to the rest of your body."
+    e "Sekarang berikan perhatian pada bahagian badan anda yang lain."
+
+# game/script.rpy:2582
+translate malay deliver_technique_d8258f0f:
+
+    # e "Notice your neck, chest, stomach, or any part that feels tight."
+    e "Perhatikan leher, dada, perut, atau mana-mana bahagian yang terasa tegang."
+
+# game/script.rpy:2584
+translate malay deliver_technique_5011b2a5:
+
+    # e "If you notice a tight area, that's okay."
+    e "Jika anda perasan kawasan yang tegang, tidak mengapa."
+
+# game/script.rpy:2585
+translate malay deliver_technique_a9e80ad6:
+
+    # e "You do not need to change anything right now."
+    e "Anda tidak perlu mengubah apa-apa sekarang."
+
+# game/script.rpy:2586
+translate malay deliver_technique_46a146c8:
+
+    # e "Just take a slow breath and notice how your body feels."
+    e "Cuma tarik nafas perlahan-lahan dan perhatikan bagaimana keadaan badan anda."
+
+# game/script.rpy:2588
+translate malay deliver_technique_fd54a7f1:
+
+    # e "Well done. Noticing tension can be the first step to letting it go."
+    e "Syabas. Menyedari ketegangan boleh menjadi langkah pertama untuk melepaskannya."
+
+# game/script.rpy:2592
+translate malay deliver_technique_512969ca:
+
+    # e "Let us try a short gratitude exercise."
+    e "Mari kita cuba latihan kesyukuran yang ringkas."
+
+# game/script.rpy:2594
+translate malay deliver_technique_4b4b7497:
+
+    # e "When we feel stressed, we often focus on our problems and worries."
+    e "Apabila kita berasa tertekan, kita sering menumpukan perhatian pada masalah dan kebimbangan kita."
+
+# game/script.rpy:2595
+translate malay deliver_technique_f025d3c1:
+
+    # e "Taking a moment to notice something positive can help us feel more balanced."
+    e "Mengambil seketika untuk menyedari sesuatu yang positif boleh membantu kita berasa lebih seimbang."
+
+# game/script.rpy:2597
+translate malay deliver_technique_a0fca59e:
+
+    # e "I'd like you to think of one thing that has made you feel good, comfortable, or happy recently."
+    e "Saya ingin anda memikirkan satu perkara yang membuatkan anda berasa baik, selesa, atau gembira kebelakangan ini."
+
+# game/script.rpy:2598
+translate malay deliver_technique_503cb81b:
+
+    # e "It does not have to be something big."
+    e "Ia tidak semestinya sesuatu yang besar."
+
+# game/script.rpy:2599
+translate malay deliver_technique_da9d809f:
+
+    # e "It could be a nice conversation, a favourite meal, a quiet moment, or something that made you smile."
+    e "Ia mungkin satu perbualan yang menyenangkan, hidangan kegemaran, saat yang tenang, atau sesuatu yang membuatkan anda tersenyum."
+
+# game/script.rpy:2601
+translate malay deliver_technique_8973ccb6:
+
+    # e "Take a moment to think about it."
+    e "Ambil seketika untuk memikirkannya."
+
+# game/script.rpy:2602
+translate malay deliver_technique_58aadb59:
+
+    # e "Notice how it made you feel, and stay with that feeling for a few seconds."
+    e "Perhatikan bagaimana ia membuatkan anda berasa, dan kekal dengan perasaan itu selama beberapa saat."
+
+# game/script.rpy:2603
+translate malay deliver_technique_1ba02ba8:
+
+    # e "Sometimes small positive moments are worth remembering."
+    e "Kadangkala saat-saat positif yang kecil berbaloi untuk diingati."
+
+# game/script.rpy:2609
+translate malay deliver_technique_e84d9dda:
+
+    # e "Let us try a guided imagery exercise."
+    e "Mari kita cuba latihan imaginasi berpandu."
+
+# game/script.rpy:2610
+translate malay deliver_technique_7543f525:
+
+    # e "This exercise helps you relax by focusing on a calm place."
+    e "Latihan ini membantu anda berehat dengan menumpukan perhatian pada satu tempat yang tenang."
+
+# game/script.rpy:2611
+translate malay deliver_technique_c9396069:
+
+    # e "Many people find it helpful during stressful moments."
+    e "Ramai orang mendapati ia membantu pada saat-saat yang penuh tekanan."
+
+# game/script.rpy:2613
+translate malay deliver_technique_c6c21077:
+
+    # e "Take a moment to look at this peaceful beach."
+    e "Ambil seketika untuk melihat pantai yang damai ini."
+
+# game/script.rpy:2614
+translate malay deliver_technique_40fe30ad:
+
+    # e "Imagine you are here, feeling safe and comfortable."
+    e "Bayangkan anda berada di sini, berasa selamat dan selesa."
+
+# game/script.rpy:2616
+translate malay deliver_technique_3e9982b3:
+
+    # e "If you are comfortable, you can gently close your eyes or look at the scene."
+    e "Jika anda selesa, anda boleh tutup mata perlahan-lahan atau pandang pemandangan itu."
+
+# game/script.rpy:2617
+translate malay deliver_technique_9843f2a7:
+
+    # e "Notice what you can see. Look at the colours, the light, and the waves."
+    e "Perhatikan apa yang anda boleh lihat. Pandang warna, cahaya, dan ombak."
+
+# game/script.rpy:2618
+translate malay deliver_technique_9323b46d:
+
+    # e "Now listen to the sounds."
+    e "Sekarang dengarkan bunyi-bunyi itu."
+
+# game/script.rpy:2619
+translate malay deliver_technique_f7857626:
+
+    # e "You may hear the waves, birds, or a gentle breeze."
+    e "Anda mungkin mendengar ombak, burung, atau bayu yang lembut."
+
+# game/script.rpy:2620
+translate malay deliver_technique_027ce26e:
+
+    # e "Now notice how your body feels."
+    e "Sekarang perhatikan bagaimana keadaan badan anda."
+
+# game/script.rpy:2621
+translate malay deliver_technique_654bd975:
+
+    # e "You may imagine warm sunlight, cool air, or soft sand under your feet."
+    e "Anda mungkin membayangkan cahaya matahari yang hangat, udara yang nyaman, atau pasir yang lembut di bawah kaki anda."
+
+# game/script.rpy:2624
+translate malay deliver_technique_a82abafe:
+
+    # e "Now slowly breathe out."
+    e "Sekarang hembus nafas perlahan-lahan."
+
+# game/script.rpy:2625
+translate malay deliver_technique_8ff2ec13:
+
+    # e "Stay in this peaceful place for a few moments."
+    e "Kekal di tempat yang damai ini untuk beberapa ketika."
+
+# game/script.rpy:2626
+translate malay deliver_technique_5d3c1087:
+
+    # e "When you feel stressed, you can remember this calm beach and take a short pause."
+    e "Apabila anda berasa tertekan, anda boleh mengingati pantai yang tenang ini dan berhenti sebentar."
+
+# game/script.rpy:2726
+translate malay phase5_close_update_e56daaa7:
+
+    # e "If you're still finding things difficult, don't hesitate to talk to someone you trust."
+    e "Jika anda masih mendapati keadaan sukar, jangan teragak-agak untuk berbual dengan seseorang yang anda percayai."
+
+# game/script.rpy:2727
+translate malay phase5_close_update_0b10421c:
+
+    # e "You do not have to go through this alone."
+    e "Anda tidak perlu melalui semua ini seorang diri."
+
+translate malay strings:
+
+    # game/script.rpy:1240
+    old "That is a nice name."
+    new "Itu nama yang baik."
+
+    # game/script.rpy:1244
+    old "Hi"
+    new "Hai"
+
+    # game/script.rpy:1256
+    old "Yes, I would like music."
+    new "Ya, saya mahu muzik."
+
+    # game/script.rpy:1262
+    old "No, I would like silence."
+    new "Tidak, saya mahu suasana sunyi."
+
+    # game/script.rpy:1281
+    old "I feel good"
+    new "Saya rasa baik"
+
+    # game/script.rpy:1287
+    old "I feel quite okay"
+    new "Saya rasa agak baik"
+
+    # game/script.rpy:1293
+    old "I feel a little stressed"
+    new "Saya rasa sedikit tertekan"
+
+    # game/script.rpy:1299
+    old "I feel very stressed"
+    new "Saya rasa sangat tertekan"
+
+    # game/script.rpy:1314
+    old "I have been doing many things today"
+    new "Saya melakukan banyak perkara hari ini"
+
+    # game/script.rpy:1325
+    old "I have been resting and having time for myself"
+    new "Saya berehat dan meluangkan masa untuk diri sendiri"
+
+    # game/script.rpy:1336
+    old "I feel tired from everything"
+    new "Saya rasa letih dengan semua perkara"
+
+    # game/script.rpy:1347
+    old "Honestly, it has been a hard day"
+    new "Sejujurnya, hari ini agak sukar"
+
+    # game/script.rpy:1422
+    old "I did something important"
+    new "Saya melakukan sesuatu yang penting"
+
+    # game/script.rpy:1433
+    old "I had a nice time with someone"
+    new "Saya meluangkan masa yang menyenangkan bersama seseorang"
+
+    # game/script.rpy:1444
+    old "I cannot think of anything"
+    new "Saya tidak dapat memikirkan apa-apa"
+
+    # game/script.rpy:1455
+    old "It has been hard lately"
+    new "Kebelakangan ini agak sukar"
+
+    # game/script.rpy:1886
+    old "I want to continue a little longer"
+    new "Saya mahu teruskan sebentar lagi"
+
+    # game/script.rpy:1895
+    old "That is enough for me today"
+    new "Itu sudah cukup untuk saya hari ini"
+
+    # game/script.rpy:1937
+    old "I'll stop here for today"
+    new "Saya berhenti di sini untuk hari ini"
+
+    # game/script.rpy:2066
+    old "Handling unexpected situations while caring for someone"
+    new "Menangani situasi yang tidak dijangka semasa menjaga seseorang"
+
+    # game/script.rpy:2392
+    old "I'm still very stressed"
+    new "Saya masih sangat tertekan"
+
+    # game/script.rpy:2396
+    old "I'm still a bit stressed"
+    new "Saya masih sedikit tertekan"
+
+    # game/script.rpy:2400
+    old "I'm feeling a little better"
+    new "Saya rasa sedikit lebih baik"
+
+    # game/script.rpy:2404
+    old "I'm feeling calmer"
+    new "Saya rasa lebih tenang"
+
+    # game/script.rpy:2408
+    old "I'm feeling much calmer"
+    new "Saya rasa jauh lebih tenang"
+
+    # game/script.rpy:2412
+    old "I'd like to stop for now"
+    new "Saya ingin berhenti buat masa ini"
+
+    # game/script.rpy:2527
+    old "Breathe in slowly through your nose for four seconds."
+    new "Tarik nafas perlahan-lahan melalui hidung anda selama empat saat."
+
+    # game/script.rpy:2529
+    old "Hold your breath for seven seconds."
+    new "Tahan nafas anda selama tujuh saat."
+
+    # game/script.rpy:2536
+    old "Breathe in. One, two, three, four."
+    new "Tarik nafas. Satu, dua, tiga, empat."
+
+    # game/script.rpy:2539
+    old "Hold your breath. One, two, three, four, five, six, seven."
+    new "Tahan nafas. Satu, dua, tiga, empat, lima, enam, tujuh."
+
+    # game/script.rpy:2542
+    old "Breathe out. One, two, three, four, five, six, seven, eight."
+    new "Hembus nafas. Satu, dua, tiga, empat, lima, enam, tujuh, lapan."
+
+    # game/script.rpy:2548
+    old "Let us do one more round."
+    new "Mari kita buat satu pusingan lagi."
+

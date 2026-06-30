@@ -609,3 +609,421 @@ translate malay strings:
     old "Okay, one more round."
     new "Baiklah, sekali lagi."
 
+
+# MUET Band 2 runtime strings (added 2026-06-30)
+translate malay strings:
+
+    old "You're not doing this alone, we'll figure it out step by step."
+    new "Anda tidak melakukan ini seorang diri, kita akan menyelesaikannya selangkah demi selangkah."
+
+    old "I'm with you in this, let's be careful about how we move forward."
+    new "Saya bersama anda dalam hal ini, mari kita berhati-hati tentang cara kita melangkah ke hadapan."
+
+    old "It sounds like you have done many things today. Well done."
+    new "Nampaknya anda telah melakukan banyak perkara hari ini. Syabas."
+
+    old "That can feel good. It sounds like you had a productive day."
+    new "Itu boleh terasa menyenangkan. Nampaknya anda mempunyai hari yang produktif."
+
+    old "It is nice to hear that you could focus and do what you needed to do."
+    new "Menyenangkan untuk mendengar bahawa anda dapat fokus dan melakukan apa yang perlu anda lakukan."
+
+    old "That sounds nice. It is good to have some time for yourself."
+    new "Itu kedengaran menyenangkan. Baik untuk meluangkan sedikit masa untuk diri sendiri."
+
+    old "I am glad you had some time to rest. Those quiet moments are important."
+    new "Saya gembira anda mempunyai sedikit masa untuk berehat. Saat-saat yang tenang itu penting."
+
+    old "That sounds relaxing. It is good to give yourself some time to rest."
+    new "Itu kedengaran menenangkan. Baik untuk memberi diri anda sedikit masa berehat."
+
+    old "I am sorry to hear that. It sounds like today has made you very tired."
+    new "Saya bersimpati mendengarnya. Nampaknya hari ini telah membuatkan anda sangat letih."
+
+    old "That sounds tiring. It seems like many things needed your attention today."
+    new "Itu kedengaran memenatkan. Nampaknya banyak perkara memerlukan perhatian anda hari ini."
+
+    old "It sounds like you have low energy today. That can be hard."
+    new "Nampaknya tenaga anda rendah hari ini. Itu boleh menjadi sukar."
+
+    old "That sounds difficult. Some days can feel harder than others."
+    new "Itu kedengaran sukar. Sesetengah hari boleh terasa lebih sukar daripada hari lain."
+
+    old "I am sorry it has been that kind of day. Thank you for telling me."
+    new "Saya bersimpati hari anda sebegitu. Terima kasih kerana memberitahu saya."
+
+    old "That sounds really hard. It is okay to say that today has been hard."
+    new "Itu kedengaran sangat sukar. Tidak mengapa untuk mengatakan bahawa hari ini sukar."
+
+    old "I am glad to hear that. It sounds like today was okay."
+    new "Saya gembira mendengarnya. Nampaknya hari ini baik-baik sahaja."
+
+    old "That is good to know. It sounds like things were calm for you."
+    new "Itu baik untuk diketahui. Nampaknya keadaan tenang bagi anda."
+
+    old "I am glad today was not too stressful for you."
+    new "Saya gembira hari ini tidak terlalu menekan bagi anda."
+
+    old "That makes sense. Small stresses can still affect your day."
+    new "Itu munasabah. Tekanan kecil masih boleh menjejaskan hari anda."
+
+    old "I understand. Even small problems can feel tiring."
+    new "Saya faham. Walaupun masalah kecil boleh terasa memenatkan."
+
+    old "I see. Little things can still make the day harder."
+    new "Saya faham. Perkara kecil masih boleh membuatkan hari menjadi lebih sukar."
+
+    old "I am sorry to hear that. Feeling stressed for a long time can be tiring."
+    new "Saya bersimpati mendengarnya. Berasa tertekan untuk masa yang lama boleh memenatkan."
+
+    old "That sounds tiring. It seems like today needed a lot from you."
+    new "Itu kedengaran memenatkan. Nampaknya hari ini memerlukan banyak daripada anda."
+
+    old "I understand. A stressful day can make you feel very tired."
+    new "Saya faham. Hari yang penuh tekanan boleh membuatkan anda berasa sangat letih."
+
+    old "That sounds very tiring. It must have been hard to feel stressed for so long."
+    new "Itu kedengaran sangat memenatkan. Pasti sukar untuk berasa tertekan begitu lama."
+
+    old "I am sorry it lasted almost all day. That can be very hard."
+    new "Saya bersimpati ia berlarutan hampir sepanjang hari. Itu boleh menjadi sangat sukar."
+
+    old "That sounds like a lot to deal with. Thank you for telling me."
+    new "Itu nampaknya banyak yang perlu dihadapi. Terima kasih kerana memberitahu saya."
+
+    old "That is nice to hear. You should feel proud of what you did."
+    new "Itu menyenangkan untuk didengari. Anda patut berasa bangga dengan apa yang anda lakukan."
+
+    old "Well done. Your hard work has paid off."
+    new "Syabas. Usaha gigih anda telah membuahkan hasil."
+
+    old "I am glad to hear that. It is good to celebrate your achievements."
+    new "Saya gembira mendengarnya. Baik untuk meraikan pencapaian anda."
+
+    old "That sounds nice. Spending time with people we care about is important."
+    new "Itu kedengaran menyenangkan. Meluangkan masa dengan orang yang kita sayangi itu penting."
+
+    old "I am glad you had that time together."
+    new "Saya gembira anda mempunyai masa bersama itu."
+
+    old "That is good to hear. A nice moment with someone can make a big difference."
+    new "Itu baik untuk didengari. Saat yang menyenangkan bersama seseorang boleh membawa perbezaan yang besar."
+
+    old "That is okay. Some days it is hard to think of good things."
+    new "Tidak mengapa. Ada hari yang sukar untuk memikirkan perkara baik."
+
+    old "That is alright. Sometimes the good moments are easy to miss."
+    new "Tidak mengapa. Kadangkala saat-saat baik mudah terlepas pandang."
+
+    old "I understand. It is not always easy to think of something positive."
+    new "Saya faham. Tidak selalu mudah untuk memikirkan sesuatu yang positif."
+
+    old "I am sorry to hear that. When things have been difficult for a while, it can be hard to see the good things."
+    new "Saya bersimpati mendengarnya. Apabila keadaan sukar untuk seketika, sukar untuk melihat perkara baik."
+
+    old "That sounds hard. When life has been difficult for a while, the good things can be hard to notice."
+    new "Itu kedengaran sukar. Apabila hidup sukar untuk seketika, perkara baik sukar untuk disedari."
+
+    old "I am sorry it has been that way. It takes strength to keep going through difficult times."
+    new "Saya bersimpati keadaan begitu. Ia memerlukan kekuatan untuk terus meneruskan ketika masa sukar."
+
+    old "That's good to know. It sounds like things are going okay."
+    new "Itu baik untuk diketahui. Nampaknya keadaan berjalan baik."
+
+    old "It sounds like that is not causing you stress."
+    new "Nampaknya perkara itu tidak menyebabkan anda tertekan."
+
+    old "It sounds like that has not been too difficult for you."
+    new "Nampaknya perkara itu tidak terlalu sukar bagi anda."
+
+    old "That is good to hear."
+    new "Itu baik untuk didengari."
+
+    old "It is good that this feels easier for you."
+    new "Baik bahawa ini terasa lebih mudah bagi anda."
+
+    old "I'm glad that has not been bothering you."
+    new "Saya gembira perkara itu tidak mengganggu anda."
+
+    old "It is nice to hear that things have been going okay."
+    new "Menyenangkan untuk mendengar bahawa keadaan berjalan baik."
+
+    old "That is nice to hear."
+    new "Itu menyenangkan untuk didengari."
+
+    old "I'm glad that has not been too hard for you."
+    new "Saya gembira perkara itu tidak terlalu sukar bagi anda."
+
+    old "It sounds like that has been easier for you."
+    new "Nampaknya perkara itu lebih mudah bagi anda."
+
+    old "I see. Thank you for telling me."
+    new "Saya faham. Terima kasih kerana memberitahu saya."
+
+    old "That makes sense. Thank you for sharing."
+    new "Itu munasabah. Terima kasih kerana berkongsi."
+
+    old "Thank you for telling me that."
+    new "Terima kasih kerana memberitahu saya tentang itu."
+
+    old "It sounds like that happens sometimes."
+    new "Nampaknya perkara itu berlaku kadangkala."
+
+    old "Thank you for sharing that with me."
+    new "Terima kasih kerana berkongsi perkara itu dengan saya."
+
+    old "That is understandable. Many people feel that way."
+    new "Itu boleh difahami. Ramai orang berasa begitu."
+
+    old "I understand what you mean."
+    new "Saya faham apa yang anda maksudkan."
+
+    old "It sounds like that happens from time to time."
+    new "Nampaknya perkara itu berlaku dari semasa ke semasa."
+
+    old "That makes sense. I understand."
+    new "Itu munasabah. Saya faham."
+
+    old "I understand. I am here with you."
+    new "Saya faham. Saya berada di sini bersama anda."
+
+    old "It sounds like that is still on your mind."
+    new "Nampaknya perkara itu masih bermain di fikiran anda."
+
+    old "It sounds like you have been dealing with a lot."
+    new "Nampaknya anda telah menghadapi banyak perkara."
+
+    old "That cannot have been easy."
+    new "Itu pasti tidak mudah."
+
+    old "It sounds like that has been on your mind."
+    new "Nampaknya perkara itu telah bermain di fikiran anda."
+
+    old "I can understand why that would be difficult for you."
+    new "Saya dapat faham mengapa perkara itu sukar bagi anda."
+
+    old "It sounds like that has been hard for you."
+    new "Nampaknya perkara itu sukar bagi anda."
+
+    old "It sounds like you have been dealing with that for some time."
+    new "Nampaknya anda telah menghadapi perkara itu untuk beberapa waktu."
+
+    old "It sounds like that has been difficult."
+    new "Nampaknya perkara itu sukar."
+
+    old "That sounds like it has been hard to stop thinking about."
+    new "Itu nampaknya sukar untuk berhenti difikirkan."
+
+    old "I can imagine that has not been easy for you."
+    new "Saya dapat bayangkan perkara itu tidak mudah bagi anda."
+
+    old "It seems like you have been dealing with a lot lately."
+    new "Nampaknya anda telah menghadapi banyak perkara kebelakangan ini."
+
+    old "I can hear how much this has affected you."
+    new "Saya dapat mendengar betapa besarnya kesan perkara ini terhadap anda."
+
+    old "It sounds like this has not stopped."
+    new "Nampaknya perkara ini tidak berhenti."
+
+    old "That sounds very difficult."
+    new "Itu kedengaran sangat sukar."
+
+    old "It sounds like it has been hard to get away from this."
+    new "Nampaknya sukar untuk anda menjauhi perkara ini."
+
+    old "That seems like a lot to deal with on your own."
+    new "Itu nampaknya banyak untuk dihadapi seorang diri."
+
+    old "I can see how much this has affected you."
+    new "Saya dapat melihat betapa besarnya kesan perkara ini terhadap anda."
+
+    old "It sounds like this has been with you for some time."
+    new "Nampaknya perkara ini telah bersama anda untuk beberapa waktu."
+
+    old "That sounds very tiring, day after day."
+    new "Itu kedengaran sangat memenatkan, hari demi hari."
+
+    old "I can only imagine how hard this has been for you."
+    new "Saya hanya dapat bayangkan betapa sukarnya perkara ini bagi anda."
+
+    old "Let's continue."
+    new "Mari kita teruskan."
+
+    old "Here is another question."
+    new "Ini satu lagi soalan."
+
+    old "I'd like to understand a little more."
+    new "Saya ingin memahami sedikit lagi."
+
+    old "Let's look at this another way."
+    new "Mari kita lihat perkara ini dengan cara yang lain."
+
+    old "Just a few more questions."
+    new "Tinggal beberapa soalan lagi."
+
+    old "Thank you for answering my questions."
+    new "Terima kasih kerana menjawab soalan-soalan saya."
+
+    old "After a long day, is it hard for you to relax?"
+    new "Selepas hari yang panjang, adakah sukar untuk anda berehat?"
+
+    old "Do small problems sometimes feel bigger than they really are?"
+    new "Adakah masalah kecil kadangkala terasa lebih besar daripada yang sebenarnya?"
+
+    old "Do you ever feel nervous for no clear reason?"
+    new "Pernahkah anda berasa gementar tanpa sebab yang jelas?"
+
+    old "Do you get restless more easily than usual?"
+    new "Adakah anda lebih mudah berasa gelisah daripada biasa?"
+
+    old "Is it hard for you to feel calm and relaxed?"
+    new "Adakah sukar untuk anda berasa tenang dan santai?"
+
+    old "If something interrupts you, do you get frustrated quickly?"
+    new "Jika sesuatu mengganggu anda, adakah anda cepat berasa kecewa?"
+
+    old "Do you sometimes feel more sensitive than usual?"
+    new "Adakah anda kadangkala berasa lebih sensitif daripada biasa?"
+
+    old "That sounds okay, which is good."
+    new "Itu kedengaran baik, dan itu bagus."
+
+    old "That's good to hear."
+    new "Itu baik untuk didengari."
+
+    old "It sounds like you're handling that well."
+    new "Nampaknya anda menanganinya dengan baik."
+
+    old "It sounds like that hasn't been bothering you too much."
+    new "Nampaknya perkara itu tidak terlalu mengganggu anda."
+
+    old "That's nice to hear."
+    new "Itu menyenangkan untuk didengari."
+
+    old "It sounds like things are going okay for you."
+    new "Nampaknya keadaan berjalan baik bagi anda."
+
+    old "It's good to know that hasn't been a big problem."
+    new "Baik untuk diketahui bahawa itu bukan masalah besar."
+
+    old "It's understandable to feel that way sometimes."
+    new "Wajar untuk berasa begitu kadangkala."
+
+    old "I can see how that can happen sometimes."
+    new "Saya dapat lihat bagaimana itu boleh berlaku kadangkala."
+
+    old "I understand that feeling."
+    new "Saya faham perasaan itu."
+
+    old "That's understandable. Many people feel that way."
+    new "Itu boleh difahami. Ramai orang berasa begitu."
+
+    old "Many people go through that from time to time."
+    new "Ramai orang mengalaminya dari semasa ke semasa."
+
+    old "That happens to many people."
+    new "Itu berlaku kepada ramai orang."
+
+    old "It sounds like it happens sometimes, but not all the time."
+    new "Nampaknya ia berlaku kadangkala, tetapi tidak sepanjang masa."
+
+    old "It sounds like you're managing it, even though it isn't easy."
+    new "Nampaknya anda menguruskannya, walaupun ia tidak mudah."
+
+    old "That sounds difficult."
+    new "Itu kedengaran sukar."
+
+    old "That can wear you out over time."
+    new "Itu boleh meletihkan anda dari semasa ke semasa."
+
+    old "It sounds like that's been on your mind."
+    new "Nampaknya perkara itu telah bermain di fikiran anda."
+
+    old "That can't have been easy."
+    new "Itu pasti tidak mudah."
+
+    old "I can understand why that feels tiring."
+    new "Saya dapat faham mengapa itu terasa memenatkan."
+
+    old "I can see how that could affect your day."
+    new "Saya dapat lihat bagaimana itu boleh menjejaskan hari anda."
+
+    old "That sounds hard to deal with."
+    new "Itu kedengaran sukar untuk dihadapi."
+
+    old "It seems like that's been taking a lot of your energy."
+    new "Nampaknya perkara itu telah mengambil banyak tenaga anda."
+
+    old "That sounds really tiring."
+    new "Itu kedengaran sangat memenatkan."
+
+    old "I'm sorry you've been going through that."
+    new "Saya bersimpati anda telah melalui perkara itu."
+
+    old "That must be hard to deal with every day."
+    new "Itu pasti sukar untuk dihadapi setiap hari."
+
+    old "It sounds like that's been affecting you a lot."
+    new "Nampaknya perkara itu telah banyak menjejaskan anda."
+
+    old "I can hear that this has been hard for you."
+    new "Saya dapat mendengar bahawa perkara ini sukar bagi anda."
+
+    old "That sounds like a lot for one person to deal with."
+    new "Itu nampaknya banyak untuk ditanggung oleh seorang."
+
+    old "I'm sorry things have been so difficult for you."
+    new "Saya bersimpati keadaan begitu sukar bagi anda."
+
+    old "It sounds like it's been hard to get away from that."
+    new "Nampaknya sukar untuk anda menjauhi perkara itu."
+
+    old "That must be very tiring for you."
+    new "Itu pasti sangat memenatkan bagi anda."
+
+    old "I would like to understand a little more."
+    new "Saya ingin memahami sedikit lagi."
+
+    old "Can you tell me a little more?"
+    new "Bolehkah anda ceritakan sedikit lagi?"
+
+    old "Thank you for talking with me."
+    new "Terima kasih kerana berbual dengan saya."
+
+    old "That's okay. Thank you for giving this a try."
+    new "Tidak mengapa. Terima kasih kerana mencubanya."
+
+    old "Take care of yourself. I'll be here whenever you want to talk again."
+    new "Jaga diri anda. Saya akan berada di sini bila-bila masa anda mahu berbual lagi."
+
+    old "That's good to hear. You stayed with it, and that is important."
+    new "Itu baik untuk didengari. Anda bertahan dengannya, dan itu penting."
+
+    old "It sounds like things have changed a little."
+    new "Nampaknya keadaan telah berubah sedikit."
+
+    old "Even feeling a little calmer is a good step."
+    new "Berasa sedikit lebih tenang pun merupakan satu langkah yang baik."
+
+    old "You took some time for yourself today, and that is important."
+    new "Anda telah meluangkan sedikit masa untuk diri sendiri hari ini, dan itu penting."
+
+    old "Even if you're still feeling stressed, you took time to check in with yourself today."
+    new "Walaupun anda masih berasa tertekan, anda telah meluangkan masa untuk menyemak keadaan diri hari ini."
+
+    old "You may not be feeling better yet, and that's okay."
+    new "Mungkin anda belum berasa lebih baik lagi, dan itu tidak mengapa."
+
+    old "Sometimes it takes time to feel better, and that's okay."
+    new "Kadangkala ia mengambil masa untuk berasa lebih baik, dan itu tidak mengapa."
+
+    old "We can keep taking things one step at a time."
+    new "Kita boleh terus melakukannya selangkah demi selangkah."
+
+    old "You do not have to feel completely okay for today to matter."
+    new "Anda tidak perlu berasa benar-benar baik untuk hari ini bermakna."
+
+    old "Thank you for taking time to check in today."
+    new "Terima kasih kerana meluangkan masa untuk menyemak keadaan diri hari ini."
+
